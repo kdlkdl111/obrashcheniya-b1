@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Открытый образовательный ресурс для китайских студентов B1: русские и китайские обращения в бытовом и деловом общении, упражнения и тесты.">
+  <meta name="theme-color" content="#173c3b">
+  <title>Обращения без барьеров — курс B1</title>
+  <style>
+    :root {
+      --paper: oklch(0.975 0.014 85);
+      --paper-deep: oklch(0.935 0.025 82);
+      --surface: oklch(0.995 0.006 85);
+      --ink: oklch(0.27 0.045 190);
+      --ink-soft: oklch(0.43 0.035 190);
+      --accent: oklch(0.50 0.17 35);
+      --accent-dark: oklch(0.41 0.14 35);
+      --jade: oklch(0.48 0.085 166);
+      --jade-soft: oklch(0.93 0.035 166);
+      --gold: oklch(0.69 0.11 78);
+      --line: oklch(0.86 0.025 82);
+      --success: oklch(0.47 0.12 150);
+      --error: oklch(0.51 0.17 28);
+      --white: oklch(1 0 0);
+      --display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Noto Serif SC", Georgia, serif;
+      --body: "Avenir Next", "Segoe UI", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      --shadow: 0 20px 60px oklch(0.27 0.045 190 / 0.09);
+      --radius: 18px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 5%, oklch(0.69 0.11 78 / 0.12), transparent 24rem),
+        var(--paper);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .17;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E");
+      z-index: 20;
+    }
+    button, input, select, textarea { font: inherit; }
+    button, a, select, input, textarea { -webkit-tap-highlight-color: transparent; }
+    button, a { touch-action: manipulation; }
+    a { color: var(--accent-dark); text-underline-offset: 3px; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .skip-link { position: fixed; left: 16px; top: -80px; z-index: 100; padding: 10px 16px; background: var(--ink); color: var(--white); }
+    .skip-link:focus { top: 12px; }
+    .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: oklch(0.975 0.014 85 / 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-main { min-height: 82px; display: flex; align-items: center; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; border: 0; background: none; color: var(--ink); padding: 0; text-align: left; flex-shrink: 0; }
+    .brand-mark { width: 45px; height: 45px; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-family: var(--display); font-size: 20px; border-radius: 50% 50% 50% 10%; }
+    .brand-name { font-family: var(--display); font-weight: 700; font-size: 18px; line-height: 1.1; }
+    .brand-sub { display: block; margin-top: 5px; font-family: var(--body); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-soft); }
+    .header-progress { margin-left: auto; display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+    .progress-ring { width: 38px; height: 38px; }
+    .progress-ring circle { fill: none; stroke-width: 3; }
+    .progress-ring .track { stroke: var(--line); }
+    .progress-ring .value { stroke: var(--accent); stroke-linecap: round; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .4s ease; }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 8px 14px; }
+    .main-nav { border-top: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-btn { border: 0; background: transparent; color: var(--ink-soft); padding: 12px 13px; font-size: 13px; white-space: nowrap; position: relative; }
+    .nav-btn::after { content: ""; position: absolute; height: 2px; left: 13px; right: 13px; bottom: 4px; background: var(--accent); transform: scaleX(0); transition: transform .2s ease; }
+    .nav-btn:hover, .nav-btn.active { color: var(--accent-dark); }
+    .nav-btn.active::after { transform: scaleX(1); }
+    main { min-height: 70vh; }
+    .view { display: none; padding: 58px 0 84px; }
+    .view.active { display: block; animation: enter .45s ease both; }
+    @keyframes enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--accent-dark); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: currentColor; }
+    h1, h2, h3 { font-family: var(--display); line-height: 1.08; margin: 0; }
+    h1 { font-size: clamp(46px, 7.3vw, 92px); letter-spacing: -.045em; font-weight: 500; }
+    h2 { font-size: clamp(34px, 4.8vw, 58px); letter-spacing: -.03em; font-weight: 500; }
+    h3 { font-size: 25px; letter-spacing: -.015em; }
+    p { margin: 0 0 1em; }
+    .lead { font-size: clamp(18px, 2.2vw, 22px); line-height: 1.55; color: var(--ink-soft); max-width: 720px; }
+    .zh { font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+    .muted { color: var(--ink-soft); }
+    .small { font-size: 13px; }
+    .section-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 420px); gap: 50px; align-items: end; margin-bottom: 42px; }
+    .section-head .eyebrow { margin-bottom: 18px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(310px, .78fr); gap: 70px; align-items: center; min-height: 570px; }
+    .hero-copy .eyebrow { margin-bottom: 24px; }
+    .hero h1 em { color: var(--accent); font-weight: 400; }
+    .hero-cn { font-family: var(--display); font-size: 20px; letter-spacing: .16em; color: var(--ink-soft); margin: 18px 0 24px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 11px 20px; border: 1px solid var(--ink); border-radius: 999px; background: var(--ink); color: var(--white); text-decoration: none; font-weight: 600; font-size: 14px; transition: background .2s, color .2s, border-color .2s, transform .2s; }
+    .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-1px); }
+    .btn.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+    .btn.secondary:hover { border-color: var(--accent); color: var(--accent-dark); background: var(--surface); }
+    .btn.accent { background: var(--accent); border-color: var(--accent); }
+    .btn.small-btn { min-height: 38px; padding: 7px 14px; font-size: 12px; }
+    .btn svg { width: 17px; height: 17px; }
+    .hero-art { position: relative; min-height: 430px; display: grid; place-items: center; }
+    .hero-art::before { content: "称"; position: absolute; font-family: var(--display); font-size: 340px; line-height: 1; color: oklch(0.50 0.17 35 / 0.07); transform: rotate(-8deg); }
+    .dialogue-card { position: relative; width: min(100%, 360px); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); padding: 30px; transform: rotate(2deg); }
+    .dialogue-card::before { content: ""; position: absolute; width: 58px; height: 16px; background: oklch(0.69 0.11 78 / .55); top: -8px; left: calc(50% - 29px); }
+    .card-kicker { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .speech { margin: 22px 0; }
+    .speech .source { font-family: var(--display); font-size: 34px; }
+    .speech .arrow { display: block; color: var(--accent); font-size: 12px; margin: 4px 0; }
+    .speech .target { font-family: var(--display); font-size: 22px; }
+    .context-tag { display: inline-block; padding: 4px 10px; border-radius: 99px; background: var(--jade-soft); color: var(--ink); font-size: 11px; }
+    .hero-note { position: absolute; right: -12px; bottom: 30px; background: var(--accent); color: var(--white); padding: 14px 18px; max-width: 180px; font-family: var(--display); font-size: 17px; transform: rotate(-4deg); box-shadow: 0 12px 30px oklch(0.50 0.17 35 / .2); }
+    .facts { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 30px; }
+    .fact { padding: 24px 20px; border-right: 1px solid var(--line); }
+    .fact:first-child { padding-left: 0; }
+    .fact:last-child { border-right: 0; }
+    .fact strong { display: block; font-family: var(--display); font-size: 32px; font-weight: 500; line-height: 1; }
+    .fact span { display: block; margin-top: 8px; font-size: 12px; color: var(--ink-soft); }
+    .home-section { margin-top: 80px; }
+    .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .module-card { position: relative; min-height: 310px; padding: 28px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); text-align: left; overflow: hidden; transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .module-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .module-number { display: block; font-family: var(--display); font-size: 74px; line-height: 1; color: var(--paper-deep); position: absolute; right: 18px; top: 14px; }
+    .module-icon { width: 42px; height: 42px; color: var(--accent); margin-bottom: 45px; }
+    .module-card h3 { margin-bottom: 12px; max-width: 240px; }
+    .module-card p { font-size: 14px; color: var(--ink-soft); }
+    .module-link { position: absolute; left: 28px; bottom: 24px; color: var(--accent-dark); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .principle { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; background: var(--ink); color: var(--paper); padding: 48px; margin-top: 80px; }
+    .principle .eyebrow { color: var(--gold); }
+    .principle blockquote { margin: 20px 0 0; font-family: var(--display); font-size: clamp(26px, 3.3vw, 40px); line-height: 1.25; }
+    .principle-list { display: grid; gap: 20px; }
+    .principle-item { display: grid; grid-template-columns: 35px 1fr; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid oklch(0.975 0.014 85 / .17); }
+    .principle-item:last-child { border-bottom: 0; padding-bottom: 0; }
+    .principle-item b { color: var(--gold); font-family: var(--display); font-size: 22px; }
+    .principle-item p { margin: 4px 0 0; color: oklch(0.975 0.014 85 / .72); font-size: 14px; }
+    .page-intro { padding: 12px 0 45px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
+    .page-intro .eyebrow { margin-bottom: 18px; }
+    .page-intro h2 { max-width: 800px; }
+    .page-intro .lead { margin-top: 22px; }
+    .two-col { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 45px; align-items: start; }
+    .content-card { background: var(--surface); border: 1px solid var(--line); padding: clamp(22px, 4vw, 38px); margin-bottom: 24px; }
+    .content-card h3 { margin-bottom: 18px; }
+    .side-card { background: var(--paper-deep); padding: 26px; position: sticky; top: 160px; }
+    .side-card h3 { font-size: 22px; margin-bottom: 16px; }
+    .check-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .check-list li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; }
+    .check-list svg { width: 20px; height: 20px; color: var(--jade); margin-top: 3px; }
+    .step-list { list-style: none; padding: 0; margin: 26px 0 0; counter-reset: steps; }
+    .step-list li { counter-increment: steps; display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); }
+    .step-list li::before { content: "0" counter(steps); font-family: var(--display); color: var(--accent); font-size: 24px; }
+    .callout { border-left: 3px solid var(--accent); padding: 16px 20px; background: oklch(0.50 0.17 35 / .055); margin: 24px 0; }
+    .callout.jade { border-color: var(--jade); background: var(--jade-soft); }
+    .callout p:last-child { margin-bottom: 0; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--surface); }
+    table { border-collapse: collapse; width: 100%; min-width: 650px; }
+    th, td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: var(--ink); color: var(--paper); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    td:first-child { font-family: var(--display); font-size: 20px; white-space: nowrap; }
+    td:nth-child(2) { font-weight: 600; }
+    .culture-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+    .culture-card { padding: 24px; border: 1px solid var(--line); background: var(--surface); }
+    .culture-card .cn-big { font-family: var(--display); font-size: 30px; color: var(--accent); margin-bottom: 12px; }
+    .culture-card h3 { font-size: 22px; margin-bottom: 10px; }
+    .culture-card p { font-size: 14px; color: var(--ink-soft); margin: 0; }
+    .quiz-shell { background: var(--surface); border: 1px solid var(--line); }
+    .quiz-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 28px; border-bottom: 1px solid var(--line); background: var(--paper-deep); }
+    .quiz-top strong { font-family: var(--display); font-size: 22px; }
+    .quiz-count { font-size: 12px; color: var(--ink-soft); }
+    .question { border: 0; padding: 28px; margin: 0; border-bottom: 1px solid var(--line); }
+    .question legend { display: block; width: 100%; padding: 0; font-family: var(--display); font-size: 21px; font-weight: 600; line-height: 1.4; }
+    .q-number { color: var(--accent); font-family: var(--body); font-size: 11px; letter-spacing: .12em; display: block; margin-bottom: 8px; }
+    .q-context { font-size: 13px; color: var(--ink-soft); margin: 8px 0 16px; }
+    .options { display: grid; gap: 9px; margin-top: 18px; }
+    .option { display: grid; grid-template-columns: 22px 1fr; gap: 11px; align-items: start; padding: 12px 14px; border: 1px solid var(--line); cursor: pointer; transition: border-color .15s, background .15s; }
+    .option:hover { border-color: var(--jade); background: var(--jade-soft); }
+    .option input { width: 17px; height: 17px; accent-color: var(--accent); margin: 4px 0 0; }
+    .question.correct { border-left: 4px solid var(--success); }
+    .question.incorrect { border-left: 4px solid var(--error); }
+    .question.correct .option.selected { background: oklch(0.47 0.12 150 / .09); border-color: var(--success); }
+    .question.incorrect .option.selected { background: oklch(0.51 0.17 28 / .07); border-color: var(--error); }
+    .explanation { display: none; margin-top: 16px; padding: 13px 16px; background: var(--paper-deep); font-size: 14px; }
+    .question.graded .explanation { display: block; }
+    .quiz-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 24px 28px; }
+    .quiz-result { flex: 1; min-width: 220px; font-weight: 600; }
+    .result-good { color: var(--success); }
+    .result-low { color: var(--error); }
+    .matching-list { display: grid; gap: 12px; padding: 28px; }
+    .match-row { display: grid; grid-template-columns: minmax(130px, .7fr) 30px minmax(220px, 1.3fr); gap: 15px; align-items: center; }
+    .match-source { font-family: var(--display); font-size: 23px; }
+    .match-arrow { color: var(--accent); text-align: center; }
+    .match-row select { width: 100%; padding: 11px 36px 11px 12px; color: var(--ink); border: 1px solid var(--line); background: var(--paper); border-radius: 0; }
+    .match-row.correct select { border-color: var(--success); background: oklch(0.47 0.12 150 / .08); }
+    .match-row.incorrect select { border-color: var(--error); background: oklch(0.51 0.17 28 / .06); }
+    .match-note { grid-column: 3; font-size: 12px; color: var(--ink-soft); margin-top: -10px; }
+    .page-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .glossary-tools { display: flex; gap: 12px; margin-bottom: 26px; }
+    .search-wrap { position: relative; flex: 1; }
+    .search-wrap svg { position: absolute; left: 16px; top: 15px; width: 20px; height: 20px; color: var(--ink-soft); }
+    .search-input { width: 100%; min-height: 50px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 12px 16px 12px 48px; }
+    .glossary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .term-card { padding: 22px; background: var(--surface); border: 1px solid var(--line); }
+    .term-card .term-rus { font-family: var(--display); font-size: 25px; line-height: 1.2; }
+    .term-card .term-zh { color: var(--accent-dark); font-weight: 600; margin: 6px 0 12px; }
+    .term-card p { font-size: 13px; color: var(--ink-soft); margin: 0; }
+    .term-cat { display: inline-block; margin-top: 16px; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--jade); }
+    .empty-state { display: none; padding: 35px; text-align: center; border: 1px dashed var(--line); }
+    .feedback-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; }
+    .form-group { margin-bottom: 22px; }
+    .form-group label, .form-group legend { display: block; font-weight: 600; margin-bottom: 8px; }
+    .form-group input[type="text"], .form-group textarea { width: 100%; border: 1px solid var(--line); background: var(--paper); color: var(--ink); padding: 12px 14px; }
+    .form-group textarea { min-height: 130px; resize: vertical; }
+    .radio-inline { display: flex; flex-wrap: wrap; gap: 8px; }
+    .radio-inline label { display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; border: 1px solid var(--line); font-weight: 400; cursor: pointer; }
+    .radio-inline input { accent-color: var(--accent); }
+    .feedback-note { background: var(--ink); color: var(--paper); padding: 28px; }
+    .feedback-note h3 { margin-bottom: 14px; }
+    .feedback-note p { color: oklch(0.975 0.014 85 / .75); font-size: 14px; }
+    .source-list { list-style: none; margin: 0; padding: 0; }
+    .source-list li { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .source-list strong { display: block; font-family: var(--display); font-size: 21px; margin-bottom: 6px; }
+    .references-title { margin: 42px 0 8px; }
+    .reference-list { counter-reset: references; }
+    .reference-list li { counter-increment: references; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+    .reference-list li::before { content: counter(references); color: var(--accent); font-family: var(--display); font-size: 22px; line-height: 1.4; }
+    .reference-list .ref-text { font-size: 14px; line-height: 1.7; }
+    .reference-list a { overflow-wrap: anywhere; }
+    .reference-note { margin: 18px 0 0; font-size: 12px; color: var(--ink-soft); }
+    .license { margin-top: 30px; padding: 28px; border: 1px solid var(--ink); }
+    .site-footer { border-top: 1px solid var(--line); padding: 30px 0; background: var(--paper-deep); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 30px; align-items: center; }
+    .footer-title { font-family: var(--display); font-size: 19px; }
+    .footer-meta { font-size: 12px; color: var(--ink-soft); text-align: right; }
+    .toast { position: fixed; z-index: 100; left: 50%; bottom: 26px; transform: translate(-50%, 20px); background: var(--ink); color: var(--paper); padding: 12px 20px; box-shadow: var(--shadow); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; font-size: 14px; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+    @media (max-width: 960px) {
+      .header-progress { display: none; }
+      .menu-toggle { display: inline-flex; margin-left: auto; }
+      .main-nav { display: none; }
+      .main-nav.open { display: block; }
+      .nav-inner { flex-wrap: wrap; padding: 8px 0 14px; overflow: visible; }
+      .nav-btn { border: 1px solid var(--line); margin: 3px; padding: 7px 11px; }
+      .nav-btn::after { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 20px; }
+      .hero-art { min-height: 390px; }
+      .hero-copy { padding-top: 20px; }
+      .section-head { grid-template-columns: 1fr; gap: 18px; }
+      .module-grid { grid-template-columns: 1fr; }
+      .module-card { min-height: 250px; }
+      .principle { grid-template-columns: 1fr; gap: 35px; }
+      .two-col, .feedback-grid { grid-template-columns: 1fr; }
+      .side-card { position: static; }
+      .glossary-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .view { padding: 36px 0 60px; }
+      .header-main { min-height: 70px; gap: 10px; }
+      .brand { gap: 9px; }
+      .brand-mark { width: 39px; height: 39px; }
+      .brand-name { font-size: 15px; }
+      .brand-sub { font-size: 7px; }
+      .menu-toggle { font-size: 0; padding: 8px 12px; }
+      .menu-toggle::after { content: "Меню"; font-size: 12px; }
+      h1 { font-size: clamp(43px, 14vw, 65px); }
+      .hero { min-height: 0; }
+      .hero-art { min-height: 350px; }
+      .dialogue-card { padding: 24px; }
+      .hero-note { right: 0; bottom: 5px; }
+      .facts { grid-template-columns: repeat(2, 1fr); }
+      .fact:nth-child(2) { border-right: 0; }
+      .fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .fact:nth-child(3) { padding-left: 0; }
+      .principle { padding: 28px 22px; margin-top: 55px; }
+      .home-section { margin-top: 55px; }
+      .culture-grid, .glossary-grid { grid-template-columns: 1fr; }
+      .question, .matching-list { padding: 21px 17px; }
+      .quiz-top, .quiz-actions { padding: 18px; }
+      .match-row { grid-template-columns: 1fr; gap: 6px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+      .match-arrow { text-align: left; transform: rotate(90deg); width: 20px; }
+      .match-note { grid-column: 1; margin: 0; }
+      .page-nav { flex-direction: column; }
+      .page-nav .btn { width: 100%; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .footer-meta { text-align: left; }
+      .quiz-actions .btn { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    }
+    @media print {
+      .site-header, .site-footer, .hero-actions, .page-nav, .quiz-actions, .glossary-tools, .toast { display: none !important; }
+      body { background: white; color: black; }
+      body::before { display: none; }
+      .view.active { display: block; padding: 0; }
+      .content-card, .quiz-shell, .term-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию / 跳到正文</a>
+  <header class="site-header">
+    <div class="container header-main">
+      <button class="brand" data-route="home" aria-label="На главную">
+        <span class="brand-mark">ОБ</span>
+        <span><span class="brand-name">Обращения без барьеров</span><span class="brand-sub">Русский · 中文 · B1</span></span>
+      </button>
+      <div class="header-progress" aria-label="Прогресс курса">
+        <svg class="progress-ring" viewBox="0 0 42 42" aria-hidden="true"><circle class="track" cx="21" cy="21" r="16"></circle><circle class="value" id="progressCircle" cx="21" cy="21" r="16" stroke-dasharray="100.53" stroke-dashoffset="100.53"></circle></svg>
+        <span id="headerProgress">0 из 5 этапов</span>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Содержание</button>
+    </div>
+    <nav class="main-nav" id="mainNav" aria-label="Основная навигация">
+      <div class="container nav-inner">
+        <button class="nav-btn active" data-route="home">Главная</button>
+        <button class="nav-btn" data-route="about">О курсе</button>
+        <button class="nav-btn" data-route="diagnostic">Диагностика</button>
+        <button class="nav-btn" data-route="module1">Модуль 1</button>
+        <button class="nav-btn" data-route="module2">Модуль 2</button>
+        <button class="nav-btn" data-route="module3">Модуль 3</button>
+        <button class="nav-btn" data-route="final">Итоговый тест</button>
+        <button class="nav-btn" data-route="glossary">Глоссарий</button>
+        <button class="nav-btn" data-route="feedback">Обратная связь</button>
+        <button class="nav-btn" data-route="sources">Источники</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <section class="view active" id="home" aria-labelledby="homeTitle">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Открытый образовательный ресурс · B1</div>
+          <h1 id="homeTitle">Слова, которые<br><em>открывают двери.</em></h1>
+          <p class="hero-cn zh" lang="zh">称谓得体，沟通无碍</p>
+          <p class="lead">Русские и китайские обращения в бытовом и деловом общении. Научитесь выбирать не просто правильную, а уместную форму.</p>
+          <div class="hero-actions">
+            <button class="btn accent" data-route="diagnostic">Начать с диагностики <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <button class="btn secondary" data-route="about">Как устроен курс</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Пример перевода китайского обращения">
+          <div class="dialogue-card">
+            <div class="card-kicker">Одна форма · разные контексты</div>
+            <div class="speech"><span class="source" lang="zh">王经理</span><span class="arrow">в деловой ситуации ↓</span><span class="target">господин Ван</span></div>
+            <span class="context-tag">официально · уважительно</span>
+            <div class="speech"><span class="source" lang="zh">老王</span><span class="arrow">между друзьями ↓</span><span class="target">Ван</span></div>
+            <span class="context-tag">неформально · без «старый»</span>
+          </div>
+          <div class="hero-note">Контекст важнее буквального перевода.</div>
+        </div>
+      </div>
+      <div class="facts" aria-label="Параметры курса">
+        <div class="fact"><strong>3</strong><span>учебных модуля</span></div>
+        <div class="fact"><strong>41</strong><span>интерактивное задание</span></div>
+        <div class="fact"><strong>30–40</strong><span>минут на прохождение</span></div>
+        <div class="fact"><strong>B1</strong><span>уровень русского языка</span></div>
+      </div>
+      <section class="home-section" aria-labelledby="pathTitle">
+        <div class="section-head">
+          <div><div class="eyebrow">Маршрут обучения</div><h2 id="pathTitle">От сопоставления<br>к уместному выбору</h2></div>
+          <p class="muted">Сначала замечаем сходства, затем различия — и только потом применяем знания в реальных ситуациях. <span lang="zh">先对比，再辨析，最后学以致用。</span></p>
+        </div>
+        <div class="module-grid">
+          <button class="module-card" data-route="module1">
+            <span class="module-number">01</span>
+            <svg class="module-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 12h32M8 24h32M8 36h32M16 6v36M32 6v36"/></svg>
+            <h3>Соответствия обращений</h3><p>Таблицы и 8 пар: от 王经理 до господин Ван.</p><span class="module-link">Открыть модуль →</span>
+          </button>
+          <button class="module-card" data-route="module2">
+            <span class="module-number">02</span>
+            <svg class="module-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M7 24h34M24 7c5 5 8 10 8 17s-3 12-8 17c-5-5-8-10-8-17s3-12 8-17Z"/></svg>
+            <h3>Различия двух систем</h3><p>Вы/ты, имя-отчество, должность, 老/小 и культурный контекст.</p><span class="module-link">Открыть модуль →</span>
+          </button>
+          <button class="module-card" data-route="module3">
+            <span class="module-number">03</span>
+            <svg class="module-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 9h32v23H22l-9 7v-7H8V9Z"/><path d="M15 18h18M15 24h12"/></svg>
+            <h3>Выбор в ситуации</h3><p>Первая встреча, письмо, переговоры, банкет и повседневное общение.</p><span class="module-link">Открыть модуль →</span>
+          </button>
+        </div>
+      </section>
+      <section class="principle" aria-labelledby="principleTitle">
+        <div><div class="eyebrow">Главный принцип</div><blockquote id="principleTitle">«Правильный перевод ещё не всегда правильное обращение».</blockquote></div>
+        <div class="principle-list">
+          <div class="principle-item"><b>01</b><div><strong>Кто перед вами?</strong><p>Возраст, статус, степень знакомства и ваши отношения.</p></div></div>
+          <div class="principle-item"><b>02</b><div><strong>Где вы общаетесь?</strong><p>Офис, ужин с друзьями, письмо и разговор требуют разных форм.</p></div></div>
+          <div class="principle-item"><b>03</b><div><strong>Что принято в культуре?</strong><p>Не переносите китайскую норму в русскую речь буквально.</p></div></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="view" id="about" aria-labelledby="aboutTitle">
+      <div class="page-intro"><div class="eyebrow">О курсе · 课程说明</div><h2 id="aboutTitle">Научиться обращаться так,<br>чтобы вас услышали</h2><p class="lead">Курс помогает китайским студентам B1 осознанно выбирать русские обращения и понимать, почему один вариант уместен, а другой создаёт дистанцию или неловкость.</p></div>
+      <div class="two-col">
+        <div>
+          <article class="content-card"><h3>Чему вы научитесь</h3><ul class="check-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Сопоставлять китайские и русские обращения без буквального перевода.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Различать «ты» и «Вы», использовать имя + отчество, «господин/госпожа» и должностные формы.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Выбирать обращение в переписке, на переговорах и в повседневном диалоге.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Замечать прагматические ошибки: преждевременное «ты», «старый Ван», обращение только по фамилии.</span></li>
+          </ul></article>
+          <article class="content-card"><h3>Как проходить курс</h3><ol class="step-list"><li><div><strong>Пройдите диагностику</strong><p class="muted small">5 вопросов покажут вашу отправную точку. Результат сохранится только в этом браузере.</p></div></li><li><div><strong>Изучите три модуля</strong><p class="muted small">Читайте таблицы, затем выполняйте задание и разбирайте пояснения.</p></div></li><li><div><strong>Сравните результат</strong><p class="muted small">Итоговый тест поможет увидеть прогресс. Цель — не менее 10 из 12.</p></div></li></ol></article>
+          <div class="callout jade"><strong>Режим обучения:</strong> самостоятельно, в своём темпе. Можно вернуться к любому модулю; лучшие результаты сохраняются локально.</div>
+        </div>
+        <aside class="side-card"><h3>Перед началом</h3><p class="small">Вам понадобится 30–40 минут. Не используйте словарь во время диагностики, но обязательно возвращайтесь к нему при разборе ошибок.</p><p class="small zh" lang="zh">建议先完成诊断测试，再依次学习三个模块。答题后请阅读解析，不要只记答案。</p><button class="btn accent" data-route="diagnostic">Пройти диагностику</button><hr style="border:0;border-top:1px solid var(--line);margin:24px 0"><p class="small muted">Для преподавателя: можно провести предварительный и итоговый тест в группе, затем сравнить типичные ошибки.</p><button class="btn secondary small-btn" onclick="window.print()">Печать страницы</button></aside>
+      </div>
+      <div class="page-nav"><button class="btn secondary" data-route="home">← На главную</button><button class="btn" data-route="diagnostic">Далее: диагностика →</button></div>
+    </section>
+
+    <section class="view" id="diagnostic" aria-labelledby="diagnosticTitle">
+      <div class="page-intro"><div class="eyebrow">До обучения · 学前诊断</div><h2 id="diagnosticTitle">Что вы уже знаете?</h2><p class="lead">Выберите самый уместный вариант. Это не экзамен: результат нужен, чтобы сравнить его с итоговым тестом.</p></div>
+      <div class="quiz-shell" id="quiz-diagnostic"></div>
+      <div class="page-nav"><button class="btn secondary" data-route="about">← О курсе</button><button class="btn" data-route="module1">Далее: модуль 1 →</button></div>
+    </section>
+
+    <section class="view" id="module1" aria-labelledby="module1Title">
+      <div class="page-intro"><div class="eyebrow">Модуль 01 · 对应</div><h2 id="module1Title">Соответствия без<br>буквального перевода</h2><p class="lead">Китайское обращение часто содержит должность или маркер близости. В русском языке эту функцию может передать другая форма — или сам контекст.</p></div>
+      <div class="table-wrap"><table><thead><tr><th>Китайская форма</th><th>Русский вариант</th><th>Когда уместно</th></tr></thead><tbody>
+        <tr><td lang="zh">王经理</td><td>господин Ван</td><td>Официальное деловое общение. «Менеджер Ван» возможно, но звучит менее естественно.</td></tr>
+        <tr><td lang="zh">李老师</td><td>Ли Сяомин / господин Ли</td><td>В русской учебной среде — по имени-отчеству, если оно известно; в межкультурном деловом контексте — господин + фамилия.</td></tr>
+        <tr><td lang="zh">张总</td><td>господин Чжан</td><td>Обращение к руководителю на переговорах или в официальном приветствии.</td></tr>
+        <tr><td lang="zh">王女士</td><td>госпожа Ван</td><td>Официальное обращение к женщине; семейное положение не уточняется.</td></tr>
+        <tr><td lang="zh">老王 / 小王</td><td>Ван</td><td>В неформальном русском общении возрастной маркер обычно опускается. Возможно имя, если вы близко знакомы.</td></tr>
+        <tr><td lang="zh">陈教授</td><td>профессор Чэнь</td><td>В академическом международном контексте; в русской аудитории предпочтительнее имя-отчество.</td></tr>
+      </tbody></table></div>
+      <div class="callout"><strong>Важно:</strong> звёздочка в учебной таблице означает не «неправильно», а «зависит от контекста». Например, 李老师 не всегда следует переводить как «учитель Ли»: в русском языке должность в обращении используется иначе.</div>
+      <section class="home-section" aria-labelledby="matchTitle"><div class="section-head"><div><div class="eyebrow">Практика · 8 пар</div><h2 id="matchTitle">Найдите соответствие</h2></div><p class="muted">Для каждой китайской формы выберите наиболее уместный русский вариант в указанном контексте. <span lang="zh">请根据语境选择最得体的俄语称谓。</span></p></div><div class="quiz-shell" id="matching-exercise"></div></section>
+      <div class="page-nav"><button class="btn secondary" data-route="diagnostic">← Диагностика</button><button class="btn" data-route="module2">Далее: модуль 2 →</button></div>
+    </section>
+
+    <section class="view" id="module2" aria-labelledby="module2Title">
+      <div class="page-intro"><div class="eyebrow">Модуль 02 · 辨析</div><h2 id="module2Title">Один язык —<br>другая дистанция</h2><p class="lead">Вежливость строится по-разному: русский язык чаще использует местоимение и имя-отчество, китайский — должность, фамилию и маркеры 老/小.</p></div>
+      <div class="culture-grid">
+        <article class="culture-card"><div class="cn-big">Вы / ты</div><h3>Социальная дистанция</h3><p>«Вы» — нейтрально-уважительная форма для незнакомых, старших и официального общения. «Ты» принято между друзьями и часто между однокурсниками. Переход лучше согласовать: «Давай на ты».</p></article>
+        <article class="culture-card"><div class="cn-big">Имя + отчество</div><h3>Русский официальный стандарт</h3><p>Иван Петрович — уважительное обращение к преподавателю, руководителю, старшему коллеге. Одно отчество («Петрович») в официальной ситуации не используют.</p></article>
+        <article class="culture-card"><div class="cn-big" lang="zh">老 / 小 + 姓</div><h3>Возраст и близость</h3><p>老王 и 小王 показывают не только возраст, но и знакомство. Русские «старый Ван» и «молодой Ван» обычно звучат неестественно или оценочно.</p></article>
+        <article class="culture-card"><div class="cn-big" lang="zh">姓 + 职务</div><h3>Статус в обращении</h3><p>张总、王经理 подчёркивают роль человека. В русском деловом общении чаще используют имя-отчество; «господин + фамилия» удобно в международном контексте.</p></article>
+      </div>
+      <div class="callout jade"><strong>Культурный комментарий:</strong> «вежливость» и «лицо» проявляются в обеих культурах, но не одинаково. Высокая контекстность китайского общения не означает, что русская форма всегда прямолинейна: интонация, жанр и отношения собеседников тоже важны.</div>
+      <section class="home-section" aria-labelledby="translationQuizTitle"><div class="section-head"><div><div class="eyebrow">Практика · 8 вопросов</div><h2 id="translationQuizTitle">Выберите точный перевод</h2></div><p class="muted">Оценивайте не только слова, но и ситуацию. Иногда буквально верный вариант прагматически неверен.</p></div><div class="quiz-shell" id="quiz-module2"></div></section>
+      <div class="page-nav"><button class="btn secondary" data-route="module1">← Модуль 1</button><button class="btn" data-route="module3">Далее: модуль 3 →</button></div>
+    </section>
+
+    <section class="view" id="module3" aria-labelledby="module3Title">
+      <div class="page-intro"><div class="eyebrow">Модуль 03 · 运用</div><h2 id="module3Title">Обращение —<br>это действие</h2><p class="lead">В реальном диалоге у вас есть секунда на выбор. Сначала определите отношения и жанр общения, затем вспомните подходящую формулу.</p></div>
+      <div class="two-col"><div class="content-card"><h3>Алгоритм «СТОП»</h3><ol class="step-list"><li><div><strong>Собеседник</strong><p class="muted small">Возраст, должность, знакомство, ваши отношения.</p></div></li><li><div><strong>Тон</strong><p class="muted small">Официальный, нейтральный или дружеский.</p></div></li><li><div><strong>Обстоятельства</strong><p class="muted small">Офис, аудитория, банкет, переписка, улица.</p></div></li><li><div><strong>Приветствие</strong><p class="muted small">Соедините «Здравствуйте/Привет» с выбранной формой — или начните без обращения.</p></div></li></ol></div><aside class="side-card"><h3>Универсальный совет</h3><p class="small">Если сомневаетесь, начните чуть более официально. Собеседник сам предложит перейти на «ты» или использовать имя.</p><p class="small zh" lang="zh">不确定时，先选择略正式的称呼，再根据对方回应调整。</p></aside></div>
+      <section class="home-section" aria-labelledby="casesTitle"><div class="section-head"><div><div class="eyebrow">Практика · 8 ситуаций</div><h2 id="casesTitle">Что вы скажете?</h2></div><p class="muted">Каждый случай — короткий коммуникативный выбор. После проверки прочитайте объяснение даже к правильным ответам.</p></div><div class="quiz-shell" id="quiz-module3"></div></section>
+      <div class="page-nav"><button class="btn secondary" data-route="module2">← Модуль 2</button><button class="btn" data-route="final">Далее: итоговый тест →</button></div>
+    </section>
+
+    <section class="view" id="final" aria-labelledby="finalTitle">
+      <div class="page-intro"><div class="eyebrow">После обучения · 期末测试</div><h2 id="finalTitle">Проверьте,<br>что изменилось</h2><p class="lead">12 вопросов по всем модулям. Постарайтесь ответить без подсказок. Цель — 10–12 правильных ответов.</p></div>
+      <div class="callout">Сравните результат с диагностикой. Если ошибки связаны с одной темой, вернитесь к соответствующему модулю и пройдите практику ещё раз.</div>
+      <div class="quiz-shell" id="quiz-final"></div>
+      <div class="page-nav"><button class="btn secondary" data-route="module3">← Модуль 3</button><button class="btn" data-route="glossary">Далее: глоссарий →</button></div>
+    </section>
+
+    <section class="view" id="glossary" aria-labelledby="glossaryTitle">
+      <div class="page-intro"><div class="eyebrow">Словарь курса · 术语表</div><h2 id="glossaryTitle">Ключевые формы<br>и понятия</h2><p class="lead">Ищите по русскому или китайскому термину. Нажмите на поле и начните вводить слово.</p></div>
+      <div class="glossary-tools"><div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="skip-link" for="glossarySearch">Поиск по глоссарию</label><input class="search-input" id="glossarySearch" type="search" placeholder="Например: отчество, 老, господин…"></div><button class="btn secondary" id="clearSearch">Сбросить</button></div>
+      <div class="glossary-grid" id="glossaryGrid"></div><div class="empty-state" id="glossaryEmpty">Ничего не найдено. Попробуйте другое слово.</div>
+      <div class="page-nav"><button class="btn secondary" data-route="final">← Итоговый тест</button><button class="btn" data-route="feedback">Далее: обратная связь →</button></div>
+    </section>
+
+    <section class="view" id="feedback" aria-labelledby="feedbackTitle">
+      <div class="page-intro"><div class="eyebrow">Ваше мнение · 学习反馈</div><h2 id="feedbackTitle">Помогите улучшить курс</h2><p class="lead">Оцените материалы и задания. В этой локальной версии отзыв сохраняется в браузере и копируется для отправки преподавателю.</p></div>
+      <div class="feedback-grid">
+        <form class="content-card" id="feedbackForm">
+          <div class="form-group"><label for="studentName">Имя или группа <span class="muted small">(необязательно)</span></label><input type="text" id="studentName" autocomplete="name" placeholder="Например: группа РЯ-21"></div>
+          <fieldset class="form-group"><legend>Насколько понятны таблицы?</legend><div class="radio-inline"><label><input type="radio" name="clarity" value="1" required>1</label><label><input type="radio" name="clarity" value="2">2</label><label><input type="radio" name="clarity" value="3">3</label><label><input type="radio" name="clarity" value="4">4</label><label><input type="radio" name="clarity" value="5">5 — полностью</label></div></fieldset>
+          <fieldset class="form-group"><legend>Какова сложность заданий?</legend><div class="radio-inline"><label><input type="radio" name="difficulty" value="Слишком легко" required>Слишком легко</label><label><input type="radio" name="difficulty" value="Подходящая">Подходящая</label><label><input type="radio" name="difficulty" value="Слишком сложно">Слишком сложно</label></div></fieldset>
+          <fieldset class="form-group"><legend>Полезен ли курс для делового общения?</legend><div class="radio-inline"><label><input type="radio" name="usefulness" value="Да" required>Да</label><label><input type="radio" name="usefulness" value="Частично">Частично</label><label><input type="radio" name="usefulness" value="Пока не уверен(а)">Пока не уверен(а)</label></div></fieldset>
+          <div class="form-group"><label for="feedbackComment">Что улучшить?</label><textarea id="feedbackComment" placeholder="Какой пример помог больше всего? Где возникли затруднения?"></textarea></div>
+          <button class="btn accent" type="submit">Сохранить и скопировать отзыв</button>
+        </form>
+        <aside class="feedback-note"><h3>Куда отправляется отзыв?</h3><p>Никуда автоматически. Сайт не передаёт данные на сервер. После заполнения текст будет сохранён только в вашем браузере и скопирован — вы сможете вставить его в письмо или Google Form преподавателя.</p><p class="zh" lang="zh">本地预览不会自动上传反馈。提交后，反馈文本会复制到剪贴板，可粘贴发送给教师。</p><hr style="border:0;border-top:1px solid oklch(0.975 0.014 85 / .2);margin:24px 0"><p class="small">Вопросы для самооценки:</p><ul class="small"><li>Понятны ли таблицы?</li><li>Подходящая ли сложность?</li><li>Удобно ли пользоваться сайтом?</li><li>Пригодится ли это в общении?</li></ul></aside>
+      </div>
+      <div class="page-nav"><button class="btn secondary" data-route="glossary">← Глоссарий</button><button class="btn" data-route="sources">Далее: источники →</button></div>
+    </section>
+
+    <section class="view" id="sources" aria-labelledby="sourcesTitle">
+      <div class="page-intro"><div class="eyebrow">Материалы и лицензия</div><h2 id="sourcesTitle">Источники и<br>принципы использования</h2><p class="lead">Учебные тексты и задания созданы для этого курса на основе темы сравнительного анализа систем обращений в русском и китайском языках.</p></div>
+      <div class="two-col">
+        <div>
+          <ul class="source-list">
+            <li><strong>Исследовательская основа</strong><span class="muted">Материалы автора курса по сравнительному анализу русских и китайских обращений в бытовом и деловом общении.</span></li>
+            <li><strong>Теоретические направления</strong><span class="muted">Прагматика, теория речевой вежливости, концепция «лица», межкультурная коммуникация, высоко- и низкоконтекстные культуры.</span></li>
+          </ul>
+          <h3 class="references-title">Научные источники <span class="muted small">/ 理论文献</span></h3>
+          <ol class="source-list reference-list">
+            <li><span class="ref-text">Ван Дань. Эволюция китайского этикета приветствия до Синьхайской революции // Общество: философия, история, культура. 2019. № 8 (64). С. 1–7. URL: <a href="https://cyberleninka.ru/article/n/evolyutsiya-kitayskogo-etiketa-privetstviya-do-sinhayskoy-revolyutsii" target="_blank" rel="noopener noreferrer">https://cyberleninka.ru/article/n/evolyutsiya-kitayskogo-etiketa-privetstviya-do-sinhayskoy-revolyutsii</a> (дата обращения: 14.12.2025).</span></li>
+            <li><span class="ref-text">Введенская Л. А., Черкасова М. Н. Русский язык и культура речи: учебное пособие. Ростов н/Д.: Феникс, 2007. 306 с.</span></li>
+            <li><span class="ref-text">Выходцева И. С. Функционирование слова «Товарищ» в советской словесной культуре // Актуальные вопросы современной филологии и журналистики. 2014. № 13. С. 1–6. URL: <a href="https://cyberleninka.ru/article/n/funktsionirovanie-slova-tovarisch-v-sovetskoy-slovesnoy-kulture" target="_blank" rel="noopener noreferrer">https://cyberleninka.ru/article/n/funktsionirovanie-slova-tovarisch-v-sovetskoy-slovesnoy-kulture</a> (дата обращения: 14.12.2025).</span></li>
+            <li><span class="ref-text">Гумбольдт В. Избранные труды по языкознанию. М.: Прогресс, 2000. 394 с.</span></li>
+            <li><span class="ref-text">Киргинцева М. В. Национально-культурная специфика обращений в современном китайском языке // Philology. 2020. [Электронный ресурс]. URL: <a href="https://scipress.ru/philology/articles/natsionalno-kulturnaya-spetsifika-obrashhenij-v-sovremennom-kitajskom-yazyke.html" target="_blank" rel="noopener noreferrer">https://scipress.ru/philology/articles/natsionalno-kulturnaya-spetsifika-obrashhenij-v-sovremennom-kitajskom-yazyke.html</a> (дата обращения: 14.12.2025).</span></li>
+            <li><span class="ref-text">Колесов В. В. Мир человека в слове Древней Руси. Л.: Изд-е Ленинг. ун-та, 1986. 311 с.</span></li>
+            <li><span class="ref-text">Колоницкий Б. И., Колядов Д. М. От «господ» к «товарищам»: как революция изменила обращения в России // Европейский университет в Санкт-Петербурге. 2025. [Электронный ресурс]. URL: <a href="https://eusp.org/news/ot-gospod-k-tovarischam-kak-revolyuciya-izmenila-obrascheniya-v-rossii" target="_blank" rel="noopener noreferrer">https://eusp.org/news/ot-gospod-k-tovarischam-kak-revolyuciya-izmenila-obrascheniya-v-rossii</a> (дата обращения: 14.12.2025).</span></li>
+            <li><span class="ref-text">Кузнецов С. А. Большой толковый словарь русского языка. Авторская редакция, 2000. 1536 с. [Электронный ресурс]. URL: <a href="https://gramota.ru/meta/obrashchenie" target="_blank" rel="noopener noreferrer">https://gramota.ru/meta/obrashchenie</a> (дата обращения: 14.12.2025).</span></li>
+            <li><span class="ref-text">Ли Цианьхуа, Смирнов И. Б. Обращение в современном китайском языке // Вестник ЛГУ им. А. С. Пушкина. 2013. № 1. С. 230–238. URL: <a href="https://cyberleninka.ru/article/n/obraschenie-v-sovremennom-kitayskom-yazyke" target="_blank" rel="noopener noreferrer">https://cyberleninka.ru/article/n/obraschenie-v-sovremennom-kitayskom-yazyke</a> (дата обращения: 14.12.2025).</span></li>
+            <li><span class="ref-text">Современный китайский словарь. 7-е издание [Xiandai Hanyu Cidian, изучение китайского языка всего 1 книга]. Пекин: Коммерческая пресса, 2016. 1799 с.</span></li>
+            <li><span class="ref-text">У Мэй. Краткое обсуждение эволюции значения термина «мастер» // Журнал Чанчуньского педагогического колледжа. 2015. Т. 31. № 1. С. 34–35. [吴梅. 小议“师傅”一词的意义演变 // 长春教育学院学报. 2015. 31(1). С. 34–35.]</span></li>
+            <li><span class="ref-text">Фан И. Б., Багичева Н. В. «Товарищ» и «гражданин»: обращения как маркеры социального (не)равенства // Политическая лингвистика. 2025. № 3 (111). С. 278–285.</span></li>
+            <li><span class="ref-text">Фасмер М. Этимологический словарь русского языка: в 4-х т. М.: Русский язык, 1973. 855 с.</span></li>
+          </ol>
+          <ul class="source-list">
+            <li><strong>Учебные примеры</strong><span class="muted">Все диалоги, ситуации и варианты ответов являются авторскими учебными материалами. Имена используются только как примеры.</span></li>
+            <li><strong>Методическая модель</strong><span class="muted">Диагностика → сопоставление → различение → ситуативный выбор → итоговый контроль → анализ ошибок.</span></li>
+          </ul>
+          <div class="license"><h3>CC BY-SA 4.0</h3><p>Тексты и задания можно распространять и адаптировать с указанием авторства и на тех же условиях. Перед повторной публикацией добавьте сведения об авторе курса.</p><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ru" target="_blank" rel="noopener noreferrer">Текст лицензии Creative Commons →</a></div>
+        </div>
+        <aside class="side-card"><h3>Для версии Google Sites</h3><p class="small">Создайте страницы в том же порядке. Таблицы можно встроить из Google Sheets, а упражнения перенести в Google Forms в режиме Quiz с автопроверкой.</p><p class="small">Перед публикацией проверьте навигацию, мобильную версию, доступ по ссылке и работу форм.</p><button class="btn secondary small-btn" data-route="home">Вернуться на главную</button></aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div><div class="footer-title">Обращения без барьеров</div><div class="small muted">Открытый образовательный ресурс · 中俄称谓学习平台</div></div><div class="footer-meta">Уровень B1 · 3 модуля · Автономное обучение<br>Результаты хранятся только в вашем браузере</div></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const icons = {
+      check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>'
+    };
+    const quizzes = {
+      diagnostic: {
+        title: 'Диагностический тест', key: 'diagnostic', questions: [
+          {q:'Вы впервые встречаетесь с российским партнёром Иваном Петровичем, мужчиной 50 лет, в офисе. Как обратиться?', options:['Привет, Иван!','Здравствуйте, Иван Петрович!','Здравствуйте, Петрович!','Эй, господин!'], a:1, e:'При первой деловой встрече уместны «Здравствуйте» и имя + отчество. Одно имя или отчество снижает официальность.'},
+          {q:'Как начать официальное письмо китайскому менеджеру Ван?', options:['Привет, старый Ван!','Уважаемый господин Ван!','Здравствуй, менеджер!','Дорогой 王经理!'], a:1, e:'В международном деловом письме «Уважаемый господин + фамилия» — понятная официальная формула.'},
+          {q:'Близкая российская подруга говорит: «Давай перейдём на ты». Что это значит?', options:['Она хочет говорить официальнее','Она просит использовать только фамилию','Она предлагает более неформальное общение','Она хочет закончить разговор'], a:2, e:'Это предложение сократить дистанцию. Можно ответить: «Давай!» и перейти на «ты».'},
+          {q:'Как лучше перевести 您 в официальном разговоре?', options:['ты','Вы','он','господин'], a:1, e:'Вежливое китайское 您 функционально соответствует русскому «Вы».'},
+          {q:'Как передать 老王 в неформальном русском разговоре о знакомом?', options:['старый Ван','дедушка Ван','Ван','уважаемый Ван'], a:2, e:'Возрастной маркер 老 при буквальном переводе звучит неестественно. В русском неформальном контексте достаточно фамилии или имени.'}
+        ]
+      },
+      module2: {
+        title: 'Перевод и прагматика', key: 'module2', questions: [
+          {q:'张总，您好！ — официальная деловая встреча.', options:['Здравствуйте, господин Чжан!','Привет, Чжан!','Здравствуйте, Чжан!','Добрый день, товарищ Чжан!'], a:0, e:'«Господин + фамилия» сохраняет официальность. Обращение только по фамилии в русской деловой речи менее уместно.'},
+          {q:'Вы обращаетесь к российскому преподавателю Анне Сергеевне на занятии.', options:['Привет, Анна!','Здравствуйте, Анна Сергеевна!','Здравствуйте, Сергеевна!','Эй, учитель!'], a:1, e:'Имя + отчество — стандартное уважительное обращение к преподавателю в русской учебной среде.'},
+          {q:'王老师 — китайский участник официальных переговоров, мужчина.', options:['Учитель Ван','господин Ван','маленький Ван','товарищ Ван'], a:1, e:'Должность 老师 не обязательно переводится буквально. В международном деловом контексте уместно «господин Ван».'},
+          {q:'Вы пишете близкой подруге Маше.', options:['Уважаемая Мария Ивановна!','Госпожа Смирнова!','Привет, Маша!','Здравствуйте, Маша!'], a:2, e:'Дружеский контекст допускает «Привет», «ты» и имя. Остальные формы создают лишнюю дистанцию.'},
+          {q:'老王 — ваш давний китайский знакомый; вы говорите с ним по-русски неформально.', options:['Привет, старый Ван!','Привет, Ван!','Здравствуйте, старик Ван!','Уважаемый 老!'], a:1, e:'老 здесь — маркер знакомства и возрастной категории, а не прямое русское обращение «старый».'},
+          {q:'Вы пишете российскому директору Ивану Петровичу Смирнову.', options:['Уважаемый Иван Петрович!','Уважаемый Смирнов!','Привет, Петрович!','Господин Иван!'], a:0, e:'В русском официальном письме предпочтительно «Уважаемый + имя + отчество».'},
+          {q:'Какое местоимение выберет B1-студент при первом разговоре с незнакомым взрослым?', options:['ты','Вы','он','вы (только если людей несколько)'], a:1, e:'Незнакомому взрослому в нейтральной или официальной ситуации говорят «Вы» с заглавной или строчной буквы; в личном письме «Вы» подчёркивает вежливость.'},
+          {q:'Как лучше перевести 小王 в дружеском русском разговоре?', options:['маленький Ван','молодой Ван','Ван','господин маленький'], a:2, e:'Русский язык обычно не сохраняет 小 в обращении. Выбирайте имя или фамилию по степени знакомства.'}
+        ]
+      },
+      module3: {
+        title: 'Ситуативный выбор', key: 'module3', questions: [
+          {q:'Первая встреча с российским партнёром, мужчиной 50 лет, в офисе.', options:['Привет, Иван!','Здравствуйте, Иван Петрович!','Здравствуйте, Петрович!','Эй, господин!'], a:1, e:'Официальная первая встреча требует «Вы» и имени-отчества.'},
+          {q:'Письмо ректору российского университета Марии Ивановне.', options:['Привет, Мария!','Уважаемая Мария Ивановна!','Госпожа Ивановна, привет!','Дорогая ректор!'], a:1, e:'Жанр официального письма и высокий статус адресата делают имя-отчество наилучшим выбором.'},
+          {q:'Официальный банкет. Вы представляете китайского руководителя Чжана.', options:['Это Чжан, привет всем!','Позвольте представить господина Чжана.','Это старый Чжан.','А вот наш начальник!'], a:1, e:'На официальном мероприятии уместна полная представляющая формула и «господин + фамилия».'},
+          {q:'Встреча с близкой однокурсницей Аней в кафе.', options:['Здравствуйте, Анна Сергеевна!','Госпожа Смирнова, рад Вас видеть!','Привет, Аня!','Здравствуйте, Аня!'], a:2, e:'Близкие однокурсники обычно общаются на «ты» и используют имя.'},
+          {q:'Деловая встреча с незнакомой китайской партнёршей Ли.', options:['Привет, Ли!','Здравствуйте, госпожа Ли!','Здравствуй, женщина Ли!','Добрый день, маленькая Ли!'], a:1, e:'«Госпожа + фамилия» нейтрально и официально, без указания семейного положения.'},
+          {q:'Вопрос российскому профессору Александру Сергеевичу после лекции.', options:['Александр Сергеевич, можно вопрос?','Сергеевич, слушай!','Профессор Александр, привет!','Эй, профессор!'], a:0, e:'Нейтрально-вежливая формула: имя-отчество + вопрос. Можно добавить «извините».'},
+          {q:'Новый коллега говорит: «Давай на ты и просто Олег». Ваш естественный ответ?', options:['Нет, я буду говорить Вам','Давай, Олег!','Хорошо, господин Олегович!','Я предпочитаю обращение по должности'], a:1, e:'Собеседник прямо предложил неформальную форму. Можно принять её сразу.'},
+          {q:'Вы хотите спросить дорогу у незнакомого взрослого человека.', options:['Эй, ты! Куда идти?','Извините, вы не подскажете, где вокзал?','Старик, где вокзал?','Господин! Отвечайте быстро!'], a:1, e:'Можно вежливо начать без имени: «Извините» + вопрос на «вы».'}
+        ]
+      },
+      final: {
+        title: 'Итоговый тест · 12 вопросов', key: 'final', questions: [
+          {q:'张总，您好！ На официальных переговорах:', options:['Привет, Чжан!','Здравствуйте, господин Чжан!','Добрый день, маленький Чжан!','Здравствуй, начальник!'], a:1, e:'Сохраняем официальную дистанцию: «Здравствуйте» + «господин + фамилия».'},
+          {q:'Выберите грамматически и прагматически верное обращение к незнакомому человеку.', options:['Ты согласен?','Вы согласны?','Вы согласен? (всегда единственное число)','Ты согласны?'], a:1, e:'Вежливое «Вы» требует формы множественного числа: «Вы согласны?».'},
+          {q:'В русском имени «Ирина Павловна Соколова» официальное обращение — это:', options:['Ирина','Павловна','Ирина Павловна','Соколова'], a:2, e:'Имя + отчество — стандартная уважительная форма.'},
+          {q:'Что означает «госпожа + фамилия»?', options:['Обращение к замужней женщине','Официальное обращение к женщине без уточнения семейного положения','Обращение к девочке','Неформальное обращение к подруге'], a:1, e:'«Госпожа» не сообщает о браке и подходит для официального контекста.'},
+          {q:'Когда уместно перейти на «ты» с новым коллегой?', options:['Всегда сразу','После предложения или взаимной договорённости','Только если коллега младше','Никогда'], a:1, e:'Переход на «ты» меняет дистанцию, поэтому лучше согласовать его.'},
+          {q:'Как обратиться к российскому преподавателю Олегу Викторовичу?', options:['Олег Викторович','Викторович','господин Олег','старый Олег'], a:0, e:'На занятии и в официальной учебной переписке используем имя-отчество.'},
+          {q:'李老师 — мужчина, китайский участник международной деловой встречи.', options:['господин Ли','учитель Ли','старый Ли','маленький Ли'], a:0, e:'В этом контексте функция официального обращения важнее буквального указания профессии.'},
+          {q:'Почему «Привет, старый Ван!» обычно не подходит как перевод 老王?', options:['Потому что 老 означает «молодой»','Потому что русское «старый» в обращении звучит оценочно и не передаёт китайскую норму','Потому что по-русски нельзя говорить «Привет»','Потому что фамилию нельзя использовать'], a:1, e:'Прагматические значения форм различаются: китайское 老 может быть дружеским, русское «старый» — нет.'},
+          {q:'Лучшее начало официального письма Анне Сергеевне Волковой:', options:['Привет, Аня!','Уважаемая Анна Сергеевна!','Госпожа Анна!','Дорогая Сергеевна!'], a:1, e:'Это стандартная формула русского официального письма.'},
+          {q:'На деловом ужине вы обращаетесь к незнакомой китайской партнёрше Чэнь:', options:['Привет, Чэнь!','Здравствуйте, госпожа Чэнь!','Здравствуй, женщина!','Добрый вечер, маленькая Чэнь!'], a:1, e:'Официальный жанр требует нейтрально-уважительной формы.'},
+          {q:'Какой вариант наиболее уместен между близкими друзьями?', options:['Уважаемый Иван Петрович!','Господин Смирнов!','Привет, Ваня!','Здравствуйте, Ваня!'], a:2, e:'Дружеское общение обычно строится на «ты», «Привет» и имени.'},
+          {q:'Главное правило выбора обращения:', options:['Всегда переводить каждое слово','Всегда выбирать самую официальную форму','Учитывать собеседника, ситуацию и культурную норму','Всегда использовать только фамилию'], a:2, e:'Уместность зависит от контекста. Чрезмерная официальность среди друзей тоже может быть неуместной.'}
+        ]
+      }
+    };
+    const matching = [
+      {zh:'王经理（正式商务）', a:'господин Ван', note:'Должность уступает место официальной форме «господин + фамилия».'},
+      {zh:'李老师（正式国际场合）', a:'господин Ли', note:'В международном деловом контексте не переводим 老师 буквально.'},
+      {zh:'张总（正式商务）', a:'господин Чжан', note:'Нейтральное официальное обращение к руководителю.'},
+      {zh:'老王（дружеское общение）', a:'Ван', note:'老 не переводится как «старый».'},
+      {zh:'小王（дружеское общение）', a:'Ван', note:'小 не переводится как «маленький» или «молодой».'},
+      {zh:'王女士（официально）', a:'госпожа Ван', note:'Официальная форма без сведений о браке.'},
+      {zh:'刘医生（обращение к врачу）', a:'доктор Лю', note:'В межъязыковом учебном контексте возможна профессиональная форма.'},
+      {zh:'陈教授（академическая встреча）', a:'профессор Чэнь', note:'В русской аудитории также предпочтительно имя-отчество.'}
+    ];
+    const glossary = [
+      ['Вы / ты','您 / 你','местоимение','Формы второго лица, различающие официальную и неформальную дистанцию.'],
+      ['имя + отчество','名字 + 父称','форма обращения','Например: Иван Петрович. Стандартная уважительная русская форма.'],
+      ['господин','先生 / 阁下（视语境）','официальное','Официальное обращение к мужчине: господин Ван.'],
+      ['госпожа','女士 / 夫人（视语境）','официальное','Официальное обращение к женщине без уточнения семейного положения.'],
+      ['должность','职务','социальная роль','Профессиональная или административная позиция: директор, менеджер, профессор.'],
+      ['老 + фамилия','老 + 姓','китайская форма','Неформальное китайское обращение, связанное с возрастом и знакомством.'],
+      ['小 + фамилия','小 + 姓','китайская форма','Неформальное обращение к младшему или более молодому знакомому.'],
+      ['姓 + 职务','姓 + 职务','китайская форма','Конструкция типа 王经理、张总, подчёркивающая социальную роль.'],
+      ['прагматика','语用学','термин','Раздел языкознания о значении языковых единиц в реальном общении.'],
+      ['дистанция власти','权力距离','культура','Степень принятия неравенства статусов в обществе и коммуникации.'],
+      ['лицо','面子','культура','Социальный имидж и достоинство человека, которые участники общения стремятся сохранить.'],
+      ['контекстность','语境依赖度','культура','Степень зависимости смысла сообщения от ситуации, отношений и неявных знаний.']
+    ];
+    const routeOrder = ['home','about','diagnostic','module1','module2','module3','final','glossary','feedback','sources'];
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+    }
+    function navigate(route, updateHash = true) {
+      if (!routeOrder.includes(route)) route = 'home';
+      document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === route));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.route === route));
+      document.getElementById('mainNav').classList.remove('open');
+      document.getElementById('menuToggle').setAttribute('aria-expanded','false');
+      if (updateHash && location.hash !== '#' + route) history.pushState(null,'','#' + route);
+      window.scrollTo({top:0,behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+      const heading = document.querySelector('#' + route + ' h1, #' + route + ' h2');
+      if (heading) heading.setAttribute('tabindex','-1');
+    }
+    document.querySelectorAll('[data-route]').forEach(btn => btn.addEventListener('click', () => navigate(btn.dataset.route)));
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      const nav = document.getElementById('mainNav');
+      const open = nav.classList.toggle('open');
+      document.getElementById('menuToggle').setAttribute('aria-expanded',String(open));
+    });
+    window.addEventListener('popstate', () => navigate(location.hash.slice(1) || 'home', false));
+
+    function renderQuiz(id) {
+      const quiz = quizzes[id];
+      const root = document.getElementById('quiz-' + id);
+      root.innerHTML = `<div class="quiz-top"><strong>${quiz.title}</strong><span class="quiz-count">${quiz.questions.length} вопросов · автопроверка</span></div><form data-quiz="${id}">${quiz.questions.map((item,i) => `<fieldset class="question" data-q="${i}"><legend><span class="q-number">ВОПРОС ${String(i+1).padStart(2,'0')}</span>${item.q}</legend><div class="options">${item.options.map((opt,j) => `<label class="option"><input type="radio" name="${id}-${i}" value="${j}"><span>${opt}</span></label>`).join('')}</div><div class="explanation"><strong>Пояснение:</strong> ${item.e}</div></fieldset>`).join('')}<div class="quiz-actions"><button class="btn accent" type="submit">Проверить ответы</button><button class="btn secondary" type="button" data-reset="${id}">Сбросить</button><div class="quiz-result" id="result-${id}" role="status" aria-live="polite"></div></div></form>`;
+      root.querySelectorAll('.option input').forEach(input => input.addEventListener('change', () => {
+        const q = input.closest('.question');
+        q.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        input.closest('.option').classList.add('selected');
+      }));
+      root.querySelector('form').addEventListener('submit', e => { e.preventDefault(); gradeQuiz(id); });
+      root.querySelector('[data-reset]').addEventListener('click', () => resetQuiz(id));
+      restoreBest(id);
+    }
+    function gradeQuiz(id) {
+      const quiz = quizzes[id];
+      const form = document.querySelector(`form[data-quiz="${id}"]`);
+      let answered = 0, score = 0;
+      quiz.questions.forEach((item,i) => {
+        const selected = form.querySelector(`input[name="${id}-${i}"]:checked`);
+        const qEl = form.querySelector(`[data-q="${i}"]`);
+        qEl.classList.remove('correct','incorrect');
+        qEl.classList.add('graded');
+        if (selected) {
+          answered++;
+          const correct = Number(selected.value) === item.a;
+          qEl.classList.add(correct ? 'correct' : 'incorrect');
+          if (correct) score++;
+        }
+      });
+      const result = document.getElementById('result-' + id);
+      if (answered < quiz.questions.length) {
+        result.className = 'quiz-result result-low';
+        result.textContent = `Отвечено ${answered} из ${quiz.questions.length}. Заполните все вопросы для сохранения результата.`;
+        return;
+      }
+      const percent = Math.round(score / quiz.questions.length * 100);
+      const good = percent >= 75;
+      result.className = 'quiz-result ' + (good ? 'result-good' : 'result-low');
+      result.textContent = `${score} из ${quiz.questions.length} · ${percent}%. ${good ? 'Отлично! Можно двигаться дальше.' : 'Разберите пояснения и попробуйте ещё раз.'}`;
+      saveBest(id,score,quiz.questions.length);
+    }
+    function resetQuiz(id) {
+      const form = document.querySelector(`form[data-quiz="${id}"]`);
+      form.reset();
+      form.querySelectorAll('.question').forEach(q => q.classList.remove('correct','incorrect','graded'));
+      form.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+      const result = document.getElementById('result-' + id);
+      result.textContent = ''; result.className = 'quiz-result';
+      restoreBest(id);
+    }
+    function saveBest(key,score,total) {
+      const data = getProgress();
+      if (!data[key] || score > data[key].score) data[key] = {score,total,updatedAt:new Date().toISOString()};
+      localStorage.setItem('addressCourseProgress',JSON.stringify(data));
+      updateProgress();
+      restoreBest(key);
+    }
+    function getProgress() {
+      try { return JSON.parse(localStorage.getItem('addressCourseProgress') || '{}'); } catch { return {}; }
+    }
+    function restoreBest(key) {
+      const best = getProgress()[key];
+      if (best) {
+        const el = document.getElementById('result-' + key) || document.getElementById('result-matching');
+        if (el && !el.textContent) el.textContent = `Лучший результат: ${best.score} из ${best.total}. Можно выполнить задание ещё раз.`;
+      }
+    }
+    function updateProgress() {
+      const data = getProgress();
+      const keys = ['diagnostic','matching','module2','module3','final'];
+      const done = keys.filter(k => data[k]).length;
+      document.getElementById('headerProgress').textContent = `${done} из 5 этапов`;
+      const offset = 100.53 * (1 - done / 5);
+      document.getElementById('progressCircle').style.strokeDashoffset = offset;
+    }
+
+    function renderMatching() {
+      const root = document.getElementById('matching-exercise');
+      const answers = [...new Set(matching.map(m => m.a))].sort((a,b) => a.localeCompare(b,'ru'));
+      root.innerHTML = `<div class="quiz-top"><strong>Соответствие обращений</strong><span class="quiz-count">8 пар · выберите вариант</span></div><form id="matchingForm"><div class="matching-list">${matching.map((m,i) => `<div class="match-row" data-match="${i}"><div class="match-source" lang="zh">${m.zh}</div><div class="match-arrow">→</div><select name="match-${i}" required aria-label="Русский вариант для ${m.zh}"><option value="">Выберите обращение…</option>${answers.map(a => `<option value="${a}">${a}</option>`).join('')}</select><div class="match-note" hidden>${m.note}</div></div>`).join('')}</div><div class="quiz-actions"><button class="btn accent" type="submit">Проверить соответствия</button><button class="btn secondary" type="button" id="resetMatching">Сбросить</button><div class="quiz-result" id="result-matching" role="status" aria-live="polite"></div></div></form>`;
+      document.getElementById('matchingForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        let answered = 0, score = 0;
+        matching.forEach((m,i) => {
+          const row = form.querySelector(`[data-match="${i}"]`);
+          const select = row.querySelector('select');
+          const note = row.querySelector('.match-note');
+          row.classList.remove('correct','incorrect'); note.hidden = true;
+          if (select.value) {
+            answered++;
+            const correct = select.value === m.a;
+            row.classList.add(correct ? 'correct' : 'incorrect');
+            note.hidden = false;
+            if (correct) score++;
+          }
+        });
+        const result = document.getElementById('result-matching');
+        if (answered < matching.length) { result.className='quiz-result result-low'; result.textContent=`Заполнено ${answered} из 8. Выберите вариант в каждой строке.`; return; }
+        result.className='quiz-result ' + (score >= 6 ? 'result-good' : 'result-low');
+        result.textContent=`${score} из 8 · ${Math.round(score/8*100)}%. ${score >= 6 ? 'Хорошо! Переходите к различиям.' : 'Вернитесь к таблице и попробуйте снова.'}`;
+        saveBest('matching',score,8);
+      });
+      document.getElementById('resetMatching').addEventListener('click', () => {
+        const form = document.getElementById('matchingForm'); form.reset();
+        form.querySelectorAll('.match-row').forEach(r => {r.classList.remove('correct','incorrect'); r.querySelector('.match-note').hidden=true;});
+        const result = document.getElementById('result-matching'); result.textContent=''; result.className='quiz-result'; restoreBest('matching');
+      });
+      restoreBest('matching');
+    }
+    function renderGlossary(filter = '') {
+      const normalized = filter.trim().toLocaleLowerCase();
+      const filtered = glossary.filter(t => t.join(' ').toLocaleLowerCase().includes(normalized));
+      document.getElementById('glossaryGrid').innerHTML = filtered.map(t => `<article class="term-card"><div class="term-rus">${t[0]}</div><div class="term-zh" lang="zh">${t[1]}</div><p>${t[3]}</p><span class="term-cat">${t[2]}</span></article>`).join('');
+      document.getElementById('glossaryEmpty').style.display = filtered.length ? 'none' : 'block';
+    }
+    document.getElementById('glossarySearch').addEventListener('input', e => renderGlossary(e.target.value));
+    document.getElementById('clearSearch').addEventListener('click', () => { document.getElementById('glossarySearch').value=''; renderGlossary(); });
+    document.getElementById('feedbackForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const text = [`Отзыв о курсе «Обращения без барьеров»`, `Имя/группа: ${document.getElementById('studentName').value || 'не указано'}`, `Понятность таблиц: ${data.get('clarity')}/5`, `Сложность: ${data.get('difficulty')}`, `Польза для делового общения: ${data.get('usefulness')}`, `Комментарий: ${document.getElementById('feedbackComment').value || 'нет'}`].join('\n');
+      localStorage.setItem('addressCourseFeedback',text);
+      try { await navigator.clipboard.writeText(text); showToast('Отзыв сохранён локально и скопирован.'); }
+      catch {
+        const area = document.createElement('textarea'); area.value=text; document.body.appendChild(area); area.select();
+        const copied = document.execCommand('copy'); area.remove();
+        showToast(copied ? 'Отзыв сохранён локально и скопирован.' : 'Отзыв сохранён локально. Скопируйте его из хранилища браузера.');
+      }
+    });
+
+    Object.keys(quizzes).forEach(renderQuiz);
+    renderMatching();
+    renderGlossary();
+    updateProgress();
+    navigate(location.hash.slice(1) || 'home', false);
+  </script>
+</body>
+</html>
