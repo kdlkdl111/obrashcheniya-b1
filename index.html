@@ -220,6 +220,50 @@
     .term-card p { font-size: 13px; color: var(--ink-soft); margin: 0; }
     .term-cat { display: inline-block; margin-top: 16px; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--jade); }
     .empty-state { display: none; padding: 35px; text-align: center; border: 1px dashed var(--line); }
+    .term-links { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 15px; }
+    .dict-link { display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 11px; line-height: 1; background: var(--paper); }
+    .dict-link:hover { border-color: var(--accent); color: var(--accent-dark); background: var(--surface); }
+    .dialogue-exercise { margin-top: 34px; }
+    .dialogue-card-ex { background: var(--surface); border: 1px solid var(--line); margin-bottom: 22px; }
+    .dialogue-context { padding: 18px 22px; border-bottom: 1px solid var(--line); background: var(--paper-deep); font-size: 13px; color: var(--ink-soft); }
+    .dialogue-lines { display: grid; gap: 10px; padding: 22px; }
+    .dialogue-line { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; width: 100%; padding: 13px 15px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); text-align: left; transition: border-color .15s, background .15s; }
+    .dialogue-line:hover { border-color: var(--jade); background: var(--jade-soft); }
+    .dialogue-line[aria-pressed="true"] { border-color: var(--accent); background: oklch(0.50 0.17 35 / .07); }
+    .dialogue-speaker { font-weight: 700; font-size: 12px; color: var(--accent-dark); }
+    .dialogue-text { font-size: 15px; line-height: 1.5; }
+    .dialogue-check { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 0 22px 22px; }
+    .dialogue-explanation { display: none; margin: 0 22px 22px; padding: 14px 16px; background: var(--paper-deep); font-size: 14px; }
+    .dialogue-card-ex.graded .dialogue-line.correct { border-color: var(--success); background: oklch(0.47 0.12 150 / .08); }
+    .dialogue-card-ex.graded .dialogue-line.missed { border-color: var(--error); background: oklch(0.51 0.17 28 / .07); }
+    .dialogue-card-ex.graded .dialogue-explanation { display: block; }
+    .cloze-dialogue { background: var(--surface); border: 1px solid var(--line); margin-bottom: 22px; }
+    .cloze-context { padding: 18px 22px; border-bottom: 1px solid var(--line); background: var(--paper-deep); font-size: 13px; color: var(--ink-soft); }
+    .cloze-lines { display: grid; gap: 15px; padding: 22px; }
+    .cloze-line { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; align-items: start; }
+    .cloze-speaker { font-weight: 700; font-size: 12px; color: var(--accent-dark); padding-top: 11px; }
+    .cloze-text { font-size: 15px; line-height: 1.7; }
+    .cloze-select { display: inline-block; max-width: 100%; margin: 0 3px; padding: 7px 32px 7px 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); }
+    .cloze-select.correct { border-color: var(--success); background: oklch(0.47 0.12 150 / .08); }
+    .cloze-select.incorrect { border-color: var(--error); background: oklch(0.51 0.17 28 / .06); }
+    .cloze-explanation { display: none; margin: 0 22px 22px; padding: 14px 16px; background: var(--paper-deep); font-size: 14px; }
+    .cloze-dialogue.graded .cloze-explanation { display: block; }
+    .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .resource-card { background: var(--surface); border: 1px solid var(--line); padding: 22px; }
+    .resource-card h3 { font-size: 21px; margin-bottom: 10px; }
+    .resource-card p { color: var(--ink-soft); font-size: 14px; }
+    .resource-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--accent-dark); }
+    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 28px; }
+    .video-card { background: var(--surface); border: 1px solid var(--line); padding: 20px; }
+    .video-frame { position: relative; aspect-ratio: 16 / 9; margin-bottom: 17px; background: var(--ink); overflow: hidden; }
+    .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-card h3 { font-size: 20px; margin-bottom: 8px; }
+    .video-meta { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0 14px; }
+    .level-tag { display: inline-block; padding: 4px 8px; background: var(--jade-soft); color: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .term-chip { display: inline-flex; align-items: center; padding: 5px 9px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); font-size: 11px; transition: border-color .15s, color .15s; }
+    .term-chip:hover { border-color: var(--accent); color: var(--accent-dark); }
+    .term-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .resource-note { margin-top: 28px; }
     .feedback-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; }
     .form-group { margin-bottom: 22px; }
     .form-group label, .form-group legend { display: block; font-weight: 600; margin-bottom: 8px; }
@@ -266,6 +310,8 @@
       .two-col, .feedback-grid { grid-template-columns: 1fr; }
       .side-card { position: static; }
       .glossary-grid { grid-template-columns: repeat(2, 1fr); }
+      .resource-grid { grid-template-columns: repeat(2, 1fr); }
+      .video-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .container { width: min(calc(100% - 28px), var(--max)); }
@@ -288,7 +334,10 @@
       .fact:nth-child(3) { padding-left: 0; }
       .principle { padding: 28px 22px; margin-top: 55px; }
       .home-section { margin-top: 55px; }
-      .culture-grid, .glossary-grid { grid-template-columns: 1fr; }
+      .culture-grid, .glossary-grid, .resource-grid, .video-grid { grid-template-columns: 1fr; }
+      .dialogue-line, .cloze-line { grid-template-columns: 1fr; gap: 5px; }
+      .cloze-speaker { padding-top: 0; }
+      .dialogue-check .btn { width: 100%; }
       .question, .matching-list { padding: 21px 17px; }
       .quiz-top, .quiz-actions { padding: 18px; }
       .match-row { grid-template-columns: 1fr; gap: 6px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
@@ -337,6 +386,7 @@
         <button class="nav-btn" data-route="final">Итоговый тест</button>
         <button class="nav-btn" data-route="glossary">Глоссарий</button>
         <button class="nav-btn" data-route="feedback">Обратная связь</button>
+        <button class="nav-btn" data-route="resources">Ресурсы</button>
         <button class="nav-btn" data-route="sources">Источники</button>
       </div>
     </nav>
@@ -368,8 +418,8 @@
       </div>
       <div class="facts" aria-label="Параметры курса">
         <div class="fact"><strong>3</strong><span>учебных модуля</span></div>
-        <div class="fact"><strong>41</strong><span>интерактивное задание</span></div>
-        <div class="fact"><strong>30–40</strong><span>минут на прохождение</span></div>
+        <div class="fact"><strong>61</strong><span>интерактивное задание</span></div>
+        <div class="fact"><strong>45–60</strong><span>минут на прохождение</span></div>
         <div class="fact"><strong>B1</strong><span>уровень русского языка</span></div>
       </div>
       <section class="home-section" aria-labelledby="pathTitle">
@@ -465,14 +515,28 @@
     </section>
 
     <section class="view" id="final" aria-labelledby="finalTitle">
-      <div class="page-intro"><div class="eyebrow">После обучения · 期末测试</div><h2 id="finalTitle">Проверьте,<br>что изменилось</h2><p class="lead">12 вопросов по всем модулям. Постарайтесь ответить без подсказок. Цель — 10–12 правильных ответов.</p></div>
+      <div class="page-intro"><div class="eyebrow">После обучения · 期末测试</div><h2 id="finalTitle">Проверьте,<br>что изменилось</h2><p class="lead">12 вопросов по всем модулям и 20 дополнительных заданий в диалогах. Постарайтесь ответить без подсказок. Цель — 10–12 правильных ответов в тесте и не менее 16 верных диалоговых решений.</p></div>
       <div class="callout">Сравните результат с диагностикой. Если ошибки связаны с одной темой, вернитесь к соответствующему модулю и пройдите практику ещё раз.</div>
       <div class="quiz-shell" id="quiz-final"></div>
+      <section class="dialogue-exercise" id="dialogueErrors" aria-labelledby="dialogueErrorsTitle">
+        <div class="section-head">
+          <div><div class="eyebrow">Найдите ошибку</div><h2 id="dialogueErrorsTitle">Анализ диалогов</h2></div>
+          <p class="muted">В каждом диалоге ровно четыре предложения. Отметьте предложение с неуместной формой обращения, затем нажмите «Проверить диалог». <span lang="zh">每个对话四句话，请找出称谓不当的一句。</span></p>
+        </div>
+        <div id="dialogueErrorTasks"></div>
+      </section>
+      <section class="dialogue-exercise" aria-labelledby="clozeTitle">
+        <div class="section-head">
+          <div><div class="eyebrow">Заполните пропуски</div><h2 id="clozeTitle">Формы обращения в диалоге</h2></div>
+          <p class="muted">Выберите подходящую форму в каждом пропуске. Каждый диалог состоит из четырёх предложений. <span lang="zh">为每句对话选择合适的称谓。</span></p>
+        </div>
+        <div id="clozeTasks"></div>
+      </section>
       <div class="page-nav"><button class="btn secondary" data-route="module3">← Модуль 3</button><button class="btn" data-route="glossary">Далее: глоссарий →</button></div>
     </section>
 
     <section class="view" id="glossary" aria-labelledby="glossaryTitle">
-      <div class="page-intro"><div class="eyebrow">Словарь курса · 术语表</div><h2 id="glossaryTitle">Ключевые формы<br>и понятия</h2><p class="lead">Ищите по русскому или китайскому термину. Нажмите на поле и начните вводить слово.</p></div>
+      <div class="page-intro"><div class="eyebrow">Словарь курса · 术语表</div><h2 id="glossaryTitle">Ключевые формы<br>и понятия</h2><p class="lead">Ищите по русскому или китайскому термину. Все русские слова и компоненты словосочетаний снабжены ссылками на словарные статьи — прежде всего на толковый словарь Ожегова.</p></div>
       <div class="glossary-tools"><div class="search-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><label class="skip-link" for="glossarySearch">Поиск по глоссарию</label><input class="search-input" id="glossarySearch" type="search" placeholder="Например: отчество, 老, господин…"></div><button class="btn secondary" id="clearSearch">Сбросить</button></div>
       <div class="glossary-grid" id="glossaryGrid"></div><div class="empty-state" id="glossaryEmpty">Ничего не найдено. Попробуйте другое слово.</div>
       <div class="page-nav"><button class="btn secondary" data-route="final">← Итоговый тест</button><button class="btn" data-route="feedback">Далее: обратная связь →</button></div>
@@ -491,7 +555,65 @@
         </form>
         <aside class="feedback-note"><h3>Куда отправляется отзыв?</h3><p>Никуда автоматически. Сайт не передаёт данные на сервер. После заполнения текст будет сохранён только в вашем браузере и скопирован — вы сможете вставить его в письмо или Google Form преподавателя.</p><p class="zh" lang="zh">本地预览不会自动上传反馈。提交后，反馈文本会复制到剪贴板，可粘贴发送给教师。</p><hr style="border:0;border-top:1px solid oklch(0.975 0.014 85 / .2);margin:24px 0"><p class="small">Вопросы для самооценки:</p><ul class="small"><li>Понятны ли таблицы?</li><li>Подходящая ли сложность?</li><li>Удобно ли пользоваться сайтом?</li><li>Пригодится ли это в общении?</li></ul></aside>
       </div>
-      <div class="page-nav"><button class="btn secondary" data-route="glossary">← Глоссарий</button><button class="btn" data-route="sources">Далее: источники →</button></div>
+      <div class="page-nav"><button class="btn secondary" data-route="glossary">← Глоссарий</button><button class="btn" data-route="resources">Далее: ресурсы →</button></div>
+    </section>
+
+    <section class="view" id="resources" aria-labelledby="resourcesTitle">
+      <div class="page-intro"><div class="eyebrow">Онлайн-ресурсы · 在线资源</div><h2 id="resourcesTitle">Словари и видео<br>для самостоятельной работы</h2><p class="lead">Здесь собраны проверенные словарные ресурсы и учебные видео для уровня B1–B2. Тематические метки под каждым видео открывают связанные слова в глоссарии.</p></div>
+      <div class="section-head">
+        <div><div class="eyebrow">Справочные материалы</div><h2>Онлайн-словари</h2></div>
+        <p class="muted">Используйте толковый словарь для уточнения значения, а русско-китайский словарь — для быстрого межъязыкового сопоставления. <span lang="zh">查词时先看俄语释义，再对照中文。</span></p>
+      </div>
+      <div class="resource-grid">
+        <article class="resource-card"><h3>Толковый словарь Ожегова</h3><p>Основной словарь курса: толкования русских слов, устойчивых сочетаний и коммуникативных форм.</p><a class="resource-link" href="https://ozhegov.slovaronline.com/" target="_blank" rel="noopener noreferrer">Открыть словарь →</a></article>
+        <article class="resource-card"><h3>Словари Грамота.ру</h3><p>Справочные материалы по культуре речи, орфографии, произношению и словарным нормам.</p><a class="resource-link" href="https://gramota.ru/slovari/" target="_blank" rel="noopener noreferrer">Открыть справочник →</a></article>
+        <article class="resource-card"><h3>Русский Викисловарь</h3><p>Дополнительные статьи, в том числе по формам, которых нет в базовом издании Ожегова.</p><a class="resource-link" href="https://ru.wiktionary.org/" target="_blank" rel="noopener noreferrer">Открыть Викисловарь →</a></article>
+        <article class="resource-card"><h3>Большой китайско-русский словарь</h3><p>Быстрый поиск китайских слов, иероглифических сочетаний и примеров перевода.</p><a class="resource-link" href="https://bkrs.info/" target="_blank" rel="noopener noreferrer">Открыть БКРС →</a></article>
+      </div>
+      <div class="section-head" style="margin-top:70px">
+        <div><div class="eyebrow">Видеоматериалы</div><h2>Обращения и имя-отчество</h2></div>
+        <p class="muted">Подборка подходит для повторения и аудирования на B1–B2. Если встроенный плеер недоступен, откройте видео по ссылке в заголовке.</p>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/yP7XXLs_pDg" title="Russian names, patronymics and surnames" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3><a href="https://www.youtube.com/watch?v=yP7XXLs_pDg" target="_blank" rel="noopener noreferrer">Russian names, patronymics and surnames</a></h3>
+          <div class="video-meta"><span class="level-tag">B1</span><span class="muted small">GoLearnRussian</span></div>
+          <div class="term-chips" aria-label="Связанная лексика"><button class="term-chip" data-goto-term="имя + отчество">имя + отчество</button><button class="term-chip" data-goto-term="фамилия">фамилия</button><button class="term-chip" data-goto-term="обращение">обращение</button></div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/Yc9G6z_4Bw8" title="How to address people in Russian. Вы vs ты" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3><a href="https://www.youtube.com/watch?v=Yc9G6z_4Bw8" target="_blank" rel="noopener noreferrer">How to address people in Russian. Вы vs ты</a></h3>
+          <div class="video-meta"><span class="level-tag">B1–B2</span><span class="muted small">Hack Your Russian</span></div>
+          <div class="term-chips" aria-label="Связанная лексика"><button class="term-chip" data-goto-term="Вы / ты">Вы / ты</button><button class="term-chip" data-goto-term="лицо">лицо</button><button class="term-chip" data-goto-term="контекстность">контекстность</button></div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/9t8-PVtIqwc" title="How to get someone's attention in Russian" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3><a href="https://www.youtube.com/watch?v=9t8-PVtIqwc" target="_blank" rel="noopener noreferrer">How to get someone’s attention in Russian?</a></h3>
+          <div class="video-meta"><span class="level-tag">B1</span><span class="muted small">Hack Your Russian</span></div>
+          <div class="term-chips" aria-label="Связанная лексика"><button class="term-chip" data-goto-term="молодой человек">молодой человек</button><button class="term-chip" data-goto-term="девушка">девушка</button><button class="term-chip" data-goto-term="обращение">обращение</button></div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/JNOx4fIS7IQ" title="ТЫ or ВЫ? HELLO BYE SORRY CHEERS DAVAI in Russian" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3><a href="https://www.youtube.com/watch?v=JNOx4fIS7IQ" target="_blank" rel="noopener noreferrer">ТЫ or ВЫ? HELLO, BYE, SORRY, CHEERS, DAVAI</a></h3>
+          <div class="video-meta"><span class="level-tag">B1</span><span class="muted small">Russian Comprehensive</span></div>
+          <div class="term-chips" aria-label="Связанная лексика"><button class="term-chip" data-goto-term="Вы / ты">Вы / ты</button><button class="term-chip" data-goto-term="товарищ">товарищ</button><button class="term-chip" data-goto-term="коллега">коллега</button></div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/DTv4ZnfyISY" title="Hello and Goodbye in Russian. Real Conversations 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3><a href="https://www.youtube.com/watch?v=DTv4ZnfyISY" target="_blank" rel="noopener noreferrer">Hello &amp; Goodbye in Russian | Real Conversations #1</a></h3>
+          <div class="video-meta"><span class="level-tag">A2–B1</span><span class="muted small">Real Russian Conversations</span></div>
+          <div class="term-chips" aria-label="Связанная лексика"><button class="term-chip" data-goto-term="господин">господин</button><button class="term-chip" data-goto-term="госпожа">госпожа</button><button class="term-chip" data-goto-term="уважаемый">уважаемый</button></div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/VDiofQGx154" title="What's Your Name in Russian. Introductions. Real Conversations 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3><a href="https://www.youtube.com/watch?v=VDiofQGx154" target="_blank" rel="noopener noreferrer">What’s Your Name in Russian? | Real Conversations #2</a></h3>
+          <div class="video-meta"><span class="level-tag">A2–B1</span><span class="muted small">Real Russian Conversations</span></div>
+          <div class="term-chips" aria-label="Связанная лексика"><button class="term-chip" data-goto-term="имя + отчество">имя + отчество</button><button class="term-chip" data-goto-term="господин">господин</button><button class="term-chip" data-goto-term="госпожа">госпожа</button></div>
+        </article>
+      </div>
+      <div class="callout jade resource-note"><strong>Методический совет:</strong> сначала посмотрите видео без субтитров и отметьте все формы обращения, затем включите текст или повторный просмотр и сверьте их со словарём курса.</div>
+      <div class="page-nav"><button class="btn secondary" data-route="feedback">← Обратная связь</button><button class="btn" data-route="sources">Далее: источники →</button></div>
     </section>
 
     <section class="view" id="sources" aria-labelledby="sourcesTitle">
@@ -598,20 +720,84 @@
       {zh:'陈教授（академическая встреча）', a:'профессор Чэнь', note:'В русской аудитории также предпочтительно имя-отчество.'}
     ];
     const glossary = [
-      ['Вы / ты','您 / 你','местоимение','Формы второго лица, различающие официальную и неформальную дистанцию.'],
-      ['имя + отчество','名字 + 父称','форма обращения','Например: Иван Петрович. Стандартная уважительная русская форма.'],
-      ['господин','先生 / 阁下（视语境）','официальное','Официальное обращение к мужчине: господин Ван.'],
-      ['госпожа','女士 / 夫人（视语境）','официальное','Официальное обращение к женщине без уточнения семейного положения.'],
-      ['должность','职务','социальная роль','Профессиональная или административная позиция: директор, менеджер, профессор.'],
-      ['老 + фамилия','老 + 姓','китайская форма','Неформальное китайское обращение, связанное с возрастом и знакомством.'],
-      ['小 + фамилия','小 + 姓','китайская форма','Неформальное обращение к младшему или более молодому знакомому.'],
-      ['姓 + 职务','姓 + 职务','китайская форма','Конструкция типа 王经理、张总, подчёркивающая социальную роль.'],
-      ['прагматика','语用学','термин','Раздел языкознания о значении языковых единиц в реальном общении.'],
-      ['дистанция власти','权力距离','культура','Степень принятия неравенства статусов в обществе и коммуникации.'],
-      ['лицо','面子','культура','Социальный имидж и достоинство человека, которые участники общения стремятся сохранить.'],
-      ['контекстность','语境依赖度','культура','Степень зависимости смысла сообщения от ситуации, отношений и неявных знаний.']
+      {term:'Вы / ты', zh:'您 / 你', cat:'местоимение', note:'Формы второго лица, различающие официальную и неформальную дистанцию.', links:[
+        {label:'Вы', url:'https://ozhegov.slovaronline.com/4479-VYI'}, {label:'ты', url:'https://ozhegov.slovaronline.com/35901-TYI'}]},
+      {term:'имя + отчество', zh:'名字 + 父称', cat:'форма обращения', note:'Например: Иван Петрович. Стандартная уважительная русская форма.', links:[
+        {label:'имя', url:'https://ozhegov.slovaronline.com/10774-IMYA'}, {label:'отчество', url:'https://ozhegov.slovaronline.com/21414-OTCHESTVO'}, {label:'имя-отчество', url:'https://ozhegov.slovaronline.com/10775-IMYA-OTCHESTVO'}]},
+      {term:'господин', zh:'先生 / 阁下（视语境）', cat:'официальное', note:'Официальное обращение к мужчине: господин Ван.', links:[
+        {label:'господин', url:'https://ozhegov.slovaronline.com/5935-GOSPODIN'}]},
+      {term:'госпожа', zh:'女士 / 夫人（视语境）', cat:'официальное', note:'Официальное обращение к женщине без уточнения семейного положения.', links:[
+        {label:'госпожа', url:'https://ru.wiktionary.org/wiki/госпожа'}]},
+      {term:'должность', zh:'职务', cat:'социальная роль', note:'Профессиональная или административная позиция: директор, менеджер, профессор.', links:[
+        {label:'должность', url:'https://ozhegov.slovaronline.com/7331-DOLZHNOST'}]},
+      {term:'фамилия', zh:'姓', cat:'имя', note:'Фамильное имя: Иванов, Петрова. В деловом контексте сочетается с «господин/госпожа».', links:[
+        {label:'фамилия', url:'https://ozhegov.slovaronline.com/37173-FAMILIYA'}]},
+      {term:'老 + фамилия', zh:'老 + 姓', cat:'китайская форма', note:'Неформальное китайское обращение, связанное с возрастом и знакомством.', links:[
+        {label:'фамилия', url:'https://ozhegov.slovaronline.com/37173-FAMILIYA'}]},
+      {term:'小 + фамилия', zh:'小 + 姓', cat:'китайская форма', note:'Неформальное обращение к младшему или более молодому знакомому.', links:[
+        {label:'фамилия', url:'https://ozhegov.slovaronline.com/37173-FAMILIYA'}]},
+      {term:'姓 + 职务', zh:'姓 + 职务', cat:'китайская форма', note:'Конструкция типа 王经理、张总, подчёркивающая социальную роль.', links:[
+        {label:'должность', url:'https://ozhegov.slovaronline.com/7331-DOLZHNOST'}]},
+      {term:'прагматика', zh:'语用学', cat:'термин', note:'Раздел языкознания о значении языковых единиц в реальном общении.', links:[
+        {label:'прагматика', url:'https://ozhegov.slovaronline.com/25832-PRAGMATIKA'}]},
+      {term:'дистанция власти', zh:'权力距离', cat:'культура', note:'Степень принятия неравенства статусов в обществе и коммуникации.', links:[
+        {label:'дистанция', url:'https://ozhegov.slovaronline.com/7066-DISTANTSIYA'}, {label:'власть', url:'https://ozhegov.slovaronline.com/3435-VLAST'}]},
+      {term:'лицо', zh:'面子', cat:'культура', note:'Социальный имидж и достоинство человека, которые участники общения стремятся сохранить.', links:[
+        {label:'лицо', url:'https://ozhegov.slovaronline.com/14412-LITSO'}]},
+      {term:'контекстность', zh:'语境依赖度', cat:'культура', note:'Степень зависимости смысла сообщения от ситуации, отношений и неявных знаний.', links:[
+        {label:'контекст', url:'https://ozhegov.slovaronline.com/12789-KONTEKST'}]},
+      {term:'обращение', zh:'称谓 / 称呼语', cat:'коммуникация', note:'Слово или сочетание, которым называют собеседника: Вы, Иван Петрович, господин Ван.', links:[
+        {label:'обращение', url:'https://ozhegov.slovaronline.com/19270-OBRASCHENIE'}]},
+      {term:'товарищ', zh:'同志 / 同事（历史语境）', cat:'историческая форма', note:'Универсальное советское обращение; сейчас ограничено официальными и историческими контекстами.', links:[
+        {label:'товарищ', url:'https://ozhegov.slovaronline.com/35149-TOVARISCH'}]},
+      {term:'гражданин', zh:'公民 / 先生（历史语境）', cat:'историческая форма', note:'Официальное обращение, распространённое в позднесоветский период.', links:[
+        {label:'гражданин', url:'https://ozhegov.slovaronline.com/5992-GRAZHDANIN'}]},
+      {term:'уважаемый', zh:'尊敬的', cat:'письменная форма', note:'Вводное слово официального письма: Уважаемый Иван Петрович.', links:[
+        {label:'уважаемый', url:'https://ru.wiktionary.org/wiki/уважаемый'}]},
+      {term:'коллега', zh:'同事', cat:'рабочий контекст', note:'Нейтральное обращение или наименование участника профессионального общения.', links:[
+        {label:'коллега', url:'https://ozhegov.slovaronline.com/12460-KOLLEGA'}]},
+      {term:'директор', zh:'主任 / 经理', cat:'должность', note:'Должностное наименование; в русском обращении часто предпочтительнее имя-отчество.', links:[
+        {label:'директор', url:'https://ozhegov.slovaronline.com/7023-DIREKTOR'}]},
+      {term:'молодой человек', zh:'年轻人 / 先生', cat:'обращение к незнакомому', note:'Вежливое привлечение внимания мужчины, чьё имя неизвестно.', links:[
+        {label:'молодой', url:'https://ozhegov.slovaronline.com/15843-MOLODOY'}, {label:'человек', url:'https://ozhegov.slovaronline.com/38507-CHELOVEK'}]},
+      {term:'девушка', zh:'姑娘 / 女士', cat:'обращение к незнакомой', note:'Частый нейтрально-вежливый способ привлечь внимание молодой или среднего возраста женщины.', links:[
+        {label:'девушка', url:'https://ozhegov.slovaronline.com/6554-DEVUSHKA'}]}
     ];
-    const routeOrder = ['home','about','diagnostic','module1','module2','module3','final','glossary','feedback','sources'];
+    const dialogueErrorTasks = [
+      {title:'Диалог 1 · Первая деловая встреча', context:'Китайский студент впервые встречается с российским партнёром Иваном Петровичем в офисе.', lines:[
+        {speaker:'Студент', text:'Здравствуйте, Иван Петрович! Очень рад познакомиться.'},
+        {speaker:'Партнёр', text:'Здравствуйте! Проходите, пожалуйста.'},
+        {speaker:'Студент', text:'Привет, Иван! Я уже посмотрел документы.'},
+        {speaker:'Партнёр', text:'Хорошо, давайте обсудим детали.'}
+      ], errorIndexes:[2], explanation:'При первой официальной встрече «Привет» и одно имя звучат слишком фамильярно. Уместно: «Здравствуйте, Иван Петрович».'},
+      {title:'Диалог 2 · После лекции', context:'Студент обращается к преподавательнице Анне Сергеевне после занятия.', lines:[
+        {speaker:'Студент', text:'Здравствуйте, Анна Сергеевна! Можно задать вопрос?'},
+        {speaker:'Преподаватель', text:'Конечно. Слушаю вас.'},
+        {speaker:'Студент', text:'Спасибо, Сергеевна. У меня вопрос по домашней работе.'},
+        {speaker:'Преподаватель', text:'Хорошо, покажите, пожалуйста, вашу работу.'}
+      ], errorIndexes:[2], explanation:'Одно отчество без имени не является стандартным официальным обращением. Нужно сказать «Анна Сергеевна».'},
+      {title:'Диалог 3 · Визит китайской делегации', context:'Российский менеджер приветствует китайского руководителя Вана на деловом визите.', lines:[
+        {speaker:'Менеджер', text:'Уважаемый господин Ван! Меня зовут Олег.'},
+        {speaker:'Гость', text:'Здравствуйте, Олег Викторович. Рад нашей встрече.'},
+        {speaker:'Менеджер', text:'Мы рады приветствовать старого Вана в нашей компании.'},
+        {speaker:'Гость', text:'Спасибо! Давайте обсудим программу визита.'}
+      ], errorIndexes:[2], explanation:'Китайское 老王 нельзя буквально переносить как «старый Ван»: в русской речи это оценочно и неуместно.'}
+    ];
+    const clozeDialogues = [
+      {title:'Диалог 1 · Деловая встреча', context:'Первая встреча российского менеджера и китайского партнёра в офисе.', items:[
+        {speaker:'Менеджер', parts:['',', добрый день! Рады приветствовать вас в нашей компании.'], choices:['Господин Ван','Иван Петрович Ван','Привет Ван','Старый Ван'], answer:'Господин Ван', explanation:'При официальном представлении иностранного партнёра естественна форма «господин + фамилия».'},
+        {speaker:'Партнёр', parts:['Здравствуйте, ', '. Спасибо за приглашение.'], choices:['Иван Петрович','Пётр','господин Иван','старик Иван'], answer:'Иван Петрович', explanation:'Если известны имя и отчество, русскому собеседнику обычно говорят «Иван Петрович».'},
+        {speaker:'Менеджер', parts:['Позвольте представить нашего коллегу: это ',' Соколова.'], choices:['госпожа','товарищ','девушка','господин'], answer:'госпожа', explanation:'«Госпожа + фамилия» — нейтральная официальная форма для женщины.'},
+        {speaker:'Партнёр', parts:['Договорились, ',' Петрович. Я готов обсудить план.'], choices:['Иван','Иванович','Ван','Олег'], answer:'Иван', explanation:'После полного имени-отчества в диалоге допустимо повторять только имя, если тон остаётся уважительным.'}
+      ]},
+      {title:'Диалог 2 · Университет и кафе', context:'Сначала студент обращается к преподавателю, затем встречает близкую подругу.', items:[
+        {speaker:'Студент', parts:['','! Можно задать вопрос после лекции?'], choices:['Анна Сергеевна','Анна','Сергеевна','госпожа'], answer:'Анна Сергеевна', explanation:'К преподавателю в русской учебной среде обращаются по имени и отчеству.'},
+        {speaker:'Преподаватель', parts:['Конечно, ',' Иванов. Я останусь в аудитории.'], choices:['Иван','Иван Петрович','студент Иван','товарищ Иван'], answer:'Иван', explanation:'Преподаватель может использовать только имя, так как обращается к студенту.'},
+        {speaker:'Студент', parts:['','! Давно не виделись.'], choices:['Привет, Маша','Здравствуйте, Мария Ивановна','Госпожа Маша','Уважаемая Маша'], answer:'Привет, Маша', explanation:'Близким друзьям говорят «Привет» и используют имя или домашнее имя.'},
+        {speaker:'Подруга', parts:['Привет, Олег! Может, перейдём на ','?'], choices:['ты','Вы','господина','отчество'], answer:'ты', explanation:'«Перейти на ты» означает сократить дистанцию и говорить неформально.'}
+      ]}
+    ];
+    const routeOrder = ['home','about','diagnostic','module1','module2','module3','final','glossary','feedback','resources','sources'];
     let toastTimer;
     function showToast(message) {
       const toast = document.getElementById('toast');
@@ -751,9 +937,90 @@
     }
     function renderGlossary(filter = '') {
       const normalized = filter.trim().toLocaleLowerCase();
-      const filtered = glossary.filter(t => t.join(' ').toLocaleLowerCase().includes(normalized));
-      document.getElementById('glossaryGrid').innerHTML = filtered.map(t => `<article class="term-card"><div class="term-rus">${t[0]}</div><div class="term-zh" lang="zh">${t[1]}</div><p>${t[3]}</p><span class="term-cat">${t[2]}</span></article>`).join('');
+      const filtered = glossary.filter(g => [g.term, g.zh, g.cat, g.note].join(' ').toLocaleLowerCase().includes(normalized));
+      document.getElementById('glossaryGrid').innerHTML = filtered.map(g => `<article class="term-card"><div class="term-rus">${g.term}</div><div class="term-zh" lang="zh">${g.zh}</div><p>${g.note}</p><span class="term-cat">${g.cat}</span><div class="term-links">${g.links.map(l => `<a class="dict-link" href="${l.url}" target="_blank" rel="noopener noreferrer" lang="ru">📖 ${l.label}</a>`).join('')}</div></article>`).join('');
       document.getElementById('glossaryEmpty').style.display = filtered.length ? 'none' : 'block';
+    }
+    function goToGlossaryTerm(term) {
+      navigate('glossary');
+      const search = document.getElementById('glossarySearch');
+      search.value = term;
+      renderGlossary(term);
+      setTimeout(() => search.focus({preventScroll:true}), 350);
+    }
+    document.addEventListener('click', e => {
+      const chip = e.target.closest('[data-goto-term]');
+      if (chip) goToGlossaryTerm(chip.dataset.gotoTerm);
+    });
+
+    function renderDialogueErrorTasks() {
+      const root = document.getElementById('dialogueErrorTasks');
+      root.innerHTML = dialogueErrorTasks.map((task, ti) => `<article class="dialogue-card-ex" data-detask="${ti}"><header class="quiz-top"><strong>${task.title}</strong><span class="quiz-count">4 предложения · найдите ошибку</span></header><div class="dialogue-context">${task.context}</div><div class="dialogue-lines">${task.lines.map((l, li) => `<button type="button" class="dialogue-line" data-line="${li}" aria-pressed="false"><span class="dialogue-speaker">${l.speaker}</span><span class="dialogue-text">${l.text}</span></button>`).join('')}</div><div class="dialogue-check"><button class="btn accent" type="button" data-decheck="${ti}">Проверить</button><button class="btn secondary" type="button" data-dereset="${ti}">Сбросить</button><div class="quiz-result" id="de-result-${ti}" role="status" aria-live="polite"></div></div><p class="dialogue-explanation"><strong>Пояснение:</strong> ${task.explanation}</p></article>`).join('');
+      root.querySelectorAll('.dialogue-line').forEach(btn => btn.addEventListener('click', () => {
+        const pressed = btn.getAttribute('aria-pressed') === 'true';
+        btn.setAttribute('aria-pressed', String(!pressed));
+      }));
+      root.querySelectorAll('[data-decheck]').forEach(btn => btn.addEventListener('click', () => {
+        const ti = Number(btn.dataset.decheck);
+        const task = dialogueErrorTasks[ti];
+        const card = root.querySelector(`[data-detask="${ti}"]`);
+        const chosen = [...card.querySelectorAll('.dialogue-line')].filter(b => b.getAttribute('aria-pressed') === 'true').map(b => Number(b.dataset.line));
+        const result = document.getElementById('de-result-' + ti);
+        if (!chosen.length) { result.className = 'quiz-result result-low'; result.textContent = 'Отметьте предложение с ошибкой.'; return; }
+        card.classList.add('graded');
+        const hits = task.errorIndexes.filter(i => chosen.includes(i));
+        card.querySelectorAll('.dialogue-line').forEach(b => {
+          const i = Number(b.dataset.line);
+          b.classList.toggle('correct', task.errorIndexes.includes(i));
+          b.classList.toggle('missed', chosen.includes(i) && !task.errorIndexes.includes(i));
+        });
+        const allFound = hits.length === task.errorIndexes.length && chosen.length === task.errorIndexes.length;
+        result.className = 'quiz-result ' + (allFound ? 'result-good' : 'result-low');
+        result.textContent = allFound ? 'Верно! Ошибка найдена.' : `Найдено ошибок: ${hits.length} из ${task.errorIndexes.length}. Сверьтесь с пояснением ниже.`;
+      }));
+      root.querySelectorAll('[data-dereset]').forEach(btn => btn.addEventListener('click', () => {
+        const ti = Number(btn.dataset.dereset);
+        const card = root.querySelector(`[data-detask="${ti}"]`);
+        card.classList.remove('graded');
+        card.querySelectorAll('.dialogue-line').forEach(b => { b.setAttribute('aria-pressed','false'); b.classList.remove('correct','missed'); });
+        const result = document.getElementById('de-result-' + ti);
+        result.textContent = ''; result.className = 'quiz-result';
+      }));
+    }
+
+    function renderClozeDialogues() {
+      const root = document.getElementById('clozeTasks');
+      root.innerHTML = clozeDialogues.map((dlg, di) => `<article class="cloze-dialogue" data-cloze="${di}"><header class="quiz-top"><strong>${dlg.title}</strong><span class="quiz-count">${dlg.items.length} пропуска · выберите форму обращения</span></header><div class="cloze-context">${dlg.context}</div><div class="cloze-lines">${dlg.items.map((item, ii) => `<div class="cloze-line"><span class="cloze-speaker">${item.speaker}</span><div class="cloze-text">${item.parts[0]}<select class="cloze-select" data-cloze-item="${di}-${ii}" aria-label="Пропуск ${ii+1}: выбор формы обращения"><option value="">…</option>${item.choices.map(c => `<option value="${c}">${c}</option>`).join('')}</select>${item.parts[1]}</div></div>`).join('')}</div><div class="dialogue-check"><button class="btn accent" type="button" data-clcheck="${di}">Проверить</button><button class="btn secondary" type="button" data-clreset="${di}">Сбросить</button><div class="quiz-result" id="cl-result-${di}" role="status" aria-live="polite"></div></div><div class="cloze-explanation">${dlg.items.map((item, ii) => `<p style="margin:0 0 8px"><strong>Пропуск ${ii+1}:</strong> ${item.explanation}</p>`).join('')}</div></article>`).join('');
+      root.querySelectorAll('[data-clcheck]').forEach(btn => btn.addEventListener('click', () => {
+        const di = Number(btn.dataset.clcheck);
+        const dlg = clozeDialogues[di];
+        const card = root.querySelector(`[data-cloze="${di}"]`);
+        let answered = 0, score = 0;
+        dlg.items.forEach((item, ii) => {
+          const sel = card.querySelector(`[data-cloze-item="${di}-${ii}"]`);
+          sel.classList.remove('correct','incorrect');
+          if (sel.value) {
+            answered++;
+            const correct = sel.value === item.answer;
+            sel.classList.add(correct ? 'correct' : 'incorrect');
+            if (correct) score++;
+          }
+        });
+        const result = document.getElementById('cl-result-' + di);
+        if (answered < dlg.items.length) { result.className = 'quiz-result result-low'; result.textContent = `Заполнено ${answered} из ${dlg.items.length}. Выберите вариант в каждом пропуске.`; return; }
+        card.classList.add('graded');
+        const percent = Math.round(score / dlg.items.length * 100);
+        result.className = 'quiz-result ' + (percent >= 75 ? 'result-good' : 'result-low');
+        result.textContent = `${score} из ${dlg.items.length} · ${percent}%. ${percent >= 75 ? 'Отлично! Формы обращения выбраны верно.' : 'Изучите пояснения ниже и попробуйте ещё раз.'}`;
+      }));
+      root.querySelectorAll('[data-clreset]').forEach(btn => btn.addEventListener('click', () => {
+        const di = Number(btn.dataset.clreset);
+        const card = root.querySelector(`[data-cloze="${di}"]`);
+        card.classList.remove('graded');
+        card.querySelectorAll('.cloze-select').forEach(s => { s.value = ''; s.classList.remove('correct','incorrect'); });
+        const result = document.getElementById('cl-result-' + di);
+        result.textContent = ''; result.className = 'quiz-result';
+      }));
     }
     document.getElementById('glossarySearch').addEventListener('input', e => renderGlossary(e.target.value));
     document.getElementById('clearSearch').addEventListener('click', () => { document.getElementById('glossarySearch').value=''; renderGlossary(); });
@@ -775,6 +1042,8 @@
     Object.keys(quizzes).forEach(renderQuiz);
     renderMatching();
     renderGlossary();
+    renderDialogueErrorTasks();
+    renderClozeDialogues();
     updateProgress();
     navigate(location.hash.slice(1) || 'home', false);
   </script>
